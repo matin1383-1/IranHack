@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
-    <title>جزئیات هکاتون — IranHack</title>
-    <meta name="description" content="صفحه‌ی نمونه‌ی جزئیات یک هکاتون در IranHack." />
+    <title>درباره ما — IranHack</title>
+    <meta name="description" content="درباره IranHack، ماموریت، تیم و بنیان‌گذار." />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,9 +18,7 @@
           extend: {
             container: { center: true, padding: '1rem' },
             fontFamily: { sans: ['Vazirmatn', 'ui-sans-serif', 'system-ui', 'sans-serif'] },
-            colors: {
-              brand: { 500: '#06b6d4' }
-            },
+            colors: { brand: { 500: '#06b6d4' } },
           },
         },
         darkMode: 'class',
@@ -35,63 +33,75 @@
           <span class="inline-block size-6 rounded bg-gradient-to-tr from-brand-500 to-emerald-500"></span>
           IranHack
         </a>
-        <div class="ms-auto flex items-center gap-2">
+        <div class="ms-auto flex items-center gap-2 desktop-nav">
           <a href="./hackathons.html" class="nav-link">هکاتون‌ها</a>
-          <a href="./about.html" class="nav-link">درباره</a>
+          <a href="./about.html" class="nav-link active">درباره</a>
           <a href="#signin" class="nav-link">ورود</a>
           <button id="theme-toggle" class="icon-btn" aria-label="تغییر تم" title="تغییر تم">
-            <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 hidden dark:block"><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/><path d="M12 2.25a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0V3A.75.75 0 0 1 12 2.25Zm0 16.5a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5a.75.75 0 0 1 .75-.75ZM4.72 4.72a.75.75 0 0 1 1.06 0l1.06 1.06a.75.75 0 1 1-1.06 1.06L4.72 5.78a.75.75 0 0 1 0-1.06Zm12.44 12.44a.75.75 0 0 1 1.06 0l1.06 1.06a.75.75 0 1 1-1.06 1.06l-1.06-1.06a.75.75 0 0 1 0-1.06ZM2.25 12a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1-.75-.75Zm16.5 0a.75.75 0 0 1 .75-.75h1.5a.75.75 0 1 1 0 1.5h-1.5a.75.75 0 0 1-.75-.75ZM4.72 19.28a.75.75 0 0 1 0-1.06l1.06-1.06a.75.75 0 1 1 1.06 1.06L5.78 19.28a.75.75 0 0 1-1.06 0Zm12.44-12.44a.75.75 0 0 1 0-1.06l1.06-1.06a.75.75 0 1 1 1.06 1.06L17.16 6.84a.75.75 0 0 1-1.06 0Z"/></svg>
+            <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 hidden dark:block"><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/><path d="M12 2.25a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0V3A.75.75 0 0 1 12 2.25Zm0 16.5a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5a.75.75 0 0 1 .75-.75ZM4.72 4.72a.75.75 0 0 1 1.06 0l1.06 1.06a.75.75 0 1 1-1.06 1.06L4.72 5.78a.75.75 0 0 1 0-1.06Zm12.44 12.44a.75.75 0 0 1 0-1.06l1.06-1.06a.75.75 0 1 1 1.06 1.06L17.16 6.84a.75.75 0 0 1-1.06 0Z"/></svg>
             <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 dark:hidden"><path d="M21.752 15.002a9 9 0 1 1-12.75-12.75.75.75 0 0 1 .977.977 7.5 7.5 0 0 0 9.796 9.796.75.75 0 0 1 .977.977Z"/></svg>
           </button>
         </div>
+        <button id="hamburger-btn" class="hamburger-btn" aria-label="منو" title="منو">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </nav>
     </header>
 
     <main>
       <section class="relative overflow-hidden border-b border-slate-200/70 dark:border-slate-800/70">
         <div class="absolute inset-0 bg-gradient-to-tr from-brand-500/10 to-emerald-500/10 dark:from-brand-500/15 dark:to-emerald-500/15"></div>
-        <div class="container py-10 relative">
-          <div class="flex items-start justify-between gap-6">
-            <div>
-              <h1 class="text-2xl sm:text-3xl font-extrabold">هکاتون هوش مصنوعی تهران</h1>
-              <p class="mt-2 text-slate-600 dark:text-slate-300">۲۱–۲۳ مهر ۱۴۰۴ • ۴۸ ساعت • آنلاین</p>
-              <div class="mt-3 flex flex-wrap gap-2">
-                <span class="tag">AI</span>
-                <span class="tag">Machine Learning</span>
-                <span class="tag">Student</span>
-              </div>
-            </div>
-            <div class="flex gap-2">
-              <a href="#apply" class="btn-primary">ثبت‌نام</a>
-              <a href="./rules.html" class="btn-ghost">قوانین</a>
-            </div>
-          </div>
+        <div class="container relative py-12">
+          <h1 class="text-3xl sm:text-4xl font-extrabold">درباره IranHack</h1>
+          <p class="mt-3 max-w-2xl text-slate-600 dark:text-slate-300">IranHack پلتفرمی مینیمال برای کشف، ثبت‌نام و میزبانی هکاتون‌ها در ایران است. ماموریت ما تسهیل رشد جامعه‌ی برنامه‌نویسان و تیم‌ها با ایجاد تجربه‌ای ساده، سریع و الهام‌بخش است.</p>
         </div>
       </section>
 
-      <section class="container py-10 grid gap-8 lg:grid-cols-3">
-        <div class="lg:col-span-2 space-y-6">
-          <article class="content">
-            <h2>درباره رویداد</h2>
-            <p>این یک صفحه‌ی نمونه است. در نسخه‌ی واقعی، توضیحات کامل، قوانین، معیارهای داوری و اطلاعات مربیان نمایش داده می‌شود.</p>
-            <h3>جوایز</h3>
-            <ul>
-              <li>رتبه اول: ۵۰۰ میلیون ریال</li>
-              <li>رتبه دوم: ۲۰۰ میلیون ریال</li>
-              <li>رتبه سوم: ۱۰۰ میلیون ریال</li>
+      <section class="container py-12 grid gap-8 lg:grid-cols-3 items-start">
+        <div class="lg:col-span-2 space-y-8">
+          <div class="rounded-xl border border-slate-200/70 dark:border-slate-800/70 p-6 bg-white/60 dark:bg-slate-950/60">
+            <h2 class="text-xl font-extrabold">ماموریت</h2>
+            <p class="mt-2 text-slate-700 dark:text-slate-200">توانمندسازی استعدادها برای ساخت آینده‌ی بهتر از طریق رویدادهای حل مسئله، شبکه‌سازی و یادگیری مبتنی بر عمل.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200/70 dark:border-slate-800/70 p-6 bg-white/60 dark:bg-slate-950/60">
+            <h2 class="text-xl font-extrabold">ارزش‌ها</h2>
+            <ul class="mt-3 space-y-2 text-slate-700 dark:text-slate-200">
+              <li>• سادگی و شفافیت</li>
+              <li>• سرعت و کیفیت</li>
+              <li>• جامعه‌محوری و یادگیری</li>
             </ul>
-          </article>
+          </div>
+
+          <div class="rounded-xl border border-slate-200/70 dark:border-slate-800/70 p-6 bg-white/60 dark:bg-slate-950/60">
+            <h2 class="text-xl font-extrabold">نقشه راه</h2>
+            <ul class="mt-3 space-y-2 text-slate-700 dark:text-slate-200 text-sm">
+              <li>Q4 1404 — راه‌اندازی نسخه عمومی</li>
+              <li>Q1 1405 — ثبت‌نام تیم‌ها و پروفایل شرکت‌کنندگان</li>
+              <li>Q2 1405 — داشبورد میزبانی و API عمومی</li>
+            </ul>
+          </div>
         </div>
-        <aside class="space-y-4">
-          <div class="rounded-xl border border-slate-200/70 dark:border-slate-800/70 p-4">
-            <h3 class="font-bold">مشخصات</h3>
-            <dl class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300">
-              <div class="flex justify-between"><dt>زمان</dt><dd>۲۱–۲۳ مهر ۱۴۰۴</dd></div>
-              <div class="flex justify-between"><dt>مدت</dt><dd>۴۸ ساعت</dd></div>
-              <div class="flex justify-between"><dt>محل</dt><dd>آنلاین</dd></div>
-              <div class="flex justify-between"><dt>ظرفیت</dt><dd>۲۰۰ نفر</dd></div>
-            </dl>
-            <a id="apply" href="#" class="btn-primary mt-4 block text-center">ثبت‌نام</a>
+
+        <aside class="space-y-6">
+          <div class="rounded-xl border border-slate-200/70 dark:border-slate-800/70 p-6 bg-white/60 dark:bg-slate-950/60">
+            <h3 class="font-extrabold">بنیان‌گذار و مدیرعامل</h3>
+            <div class="mt-4 flex items-center gap-4">
+              <div class="size-14 flex items-center justify-center rounded-full bg-gradient-to-tr from-brand-500 to-emerald-500 text-white font-bold">MA</div>
+              <div>
+                <p class="text-lg font-bold">Martin Auobi</p>
+                <p class="text-slate-600 dark:text-slate-300 text-sm">Founder & CEO</p>
+              </div>
+            </div>
+            <p class="mt-3 text-sm text-slate-700 dark:text-slate-200">با تمرکز بر تجربه‌ی کاربری و تأثیر اجتماعی، Martin IranHack را برای اتصال استعدادها، شرکت‌ها و جامعه‌ی فناوری ایران هدایت می‌کند.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200/70 dark:border-slate-800/70 p-6 bg-white/60 dark:bg-slate-950/60">
+            <h3 class="font-extrabold">ارتباط</h3>
+            <p class="mt-2 text-sm text-slate-700 dark:text-slate-200">برای همکاری یا میزبانی رویداد با ما در ارتباط باشید.</p>
+            <a href="./hackathons.html#submit" class="btn-primary mt-4 inline-flex">ارسال درخواست میزبانی</a>
           </div>
         </aside>
       </section>
@@ -178,7 +188,32 @@
       </div>
     </footer>
 
+    <!-- Mobile Menu -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+    <div id="mobile-menu" class="mobile-menu">
+      <div class="mobile-menu-header">
+        <a href="./index.html" class="flex items-center gap-2 text-lg font-extrabold">
+          <span class="inline-block size-6 rounded bg-gradient-to-tr from-brand-500 to-emerald-500"></span>
+          IranHack
+        </a>
+        <button id="mobile-close" class="icon-btn" aria-label="بستن منو">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5">
+            <path d="M6.225 4.811a1 1 0 00-1.414 1.414L10.586 12 4.81 17.775a1 1 0 101.414 1.414L12 13.414l5.775 5.775a1 1 0 001.414-1.414L13.414 12l5.775-5.775a1 1 0 00-1.414-1.414L12 10.586 6.225 4.81z"/>
+          </svg>
+        </button>
+      </div>
+      <nav class="mobile-menu-nav">
+        <a href="./hackathons.html" class="nav-link">هکاتون‌ها</a>
+        <a href="./about.html" class="nav-link active">درباره</a>
+        <a href="#signin" class="nav-link">ورود</a>
+        <button id="mobile-theme-toggle" class="nav-link text-right" aria-label="تغییر تم">
+          تغییر تم
+        </button>
+      </nav>
+    </div>
+
     <script src="./assets/app.js"></script>
   </body>
   </html>
+
 

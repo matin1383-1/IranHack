@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
-    <title>جزئیات هکاتون — IranHack</title>
-    <meta name="description" content="صفحه‌ی نمونه‌ی جزئیات یک هکاتون در IranHack." />
+    <title>برچسب‌ها — IranHack</title>
+    <meta name="description" content="مشاهده همه هکاتون‌ها بر اساس برچسب در IranHack." />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -47,54 +47,18 @@
       </nav>
     </header>
 
-    <main>
-      <section class="relative overflow-hidden border-b border-slate-200/70 dark:border-slate-800/70">
-        <div class="absolute inset-0 bg-gradient-to-tr from-brand-500/10 to-emerald-500/10 dark:from-brand-500/15 dark:to-emerald-500/15"></div>
-        <div class="container py-10 relative">
-          <div class="flex items-start justify-between gap-6">
-            <div>
-              <h1 class="text-2xl sm:text-3xl font-extrabold">هکاتون هوش مصنوعی تهران</h1>
-              <p class="mt-2 text-slate-600 dark:text-slate-300">۲۱–۲۳ مهر ۱۴۰۴ • ۴۸ ساعت • آنلاین</p>
-              <div class="mt-3 flex flex-wrap gap-2">
-                <span class="tag">AI</span>
-                <span class="tag">Machine Learning</span>
-                <span class="tag">Student</span>
-              </div>
-            </div>
-            <div class="flex gap-2">
-              <a href="#apply" class="btn-primary">ثبت‌نام</a>
-              <a href="./rules.html" class="btn-ghost">قوانین</a>
-            </div>
-          </div>
+    <main class="container py-8">
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <h1 id="title" class="text-2xl font-extrabold">برچسب</h1>
+        <div class="ms-auto w-full sm:w-96">
+          <label class="sr-only" for="search">جست‌وجو</label>
+          <input id="search" type="search" placeholder="جست‌وجوی هکاتون..." class="w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500" />
         </div>
-      </section>
+      </div>
 
-      <section class="container py-10 grid gap-8 lg:grid-cols-3">
-        <div class="lg:col-span-2 space-y-6">
-          <article class="content">
-            <h2>درباره رویداد</h2>
-            <p>این یک صفحه‌ی نمونه است. در نسخه‌ی واقعی، توضیحات کامل، قوانین، معیارهای داوری و اطلاعات مربیان نمایش داده می‌شود.</p>
-            <h3>جوایز</h3>
-            <ul>
-              <li>رتبه اول: ۵۰۰ میلیون ریال</li>
-              <li>رتبه دوم: ۲۰۰ میلیون ریال</li>
-              <li>رتبه سوم: ۱۰۰ میلیون ریال</li>
-            </ul>
-          </article>
-        </div>
-        <aside class="space-y-4">
-          <div class="rounded-xl border border-slate-200/70 dark:border-slate-800/70 p-4">
-            <h3 class="font-bold">مشخصات</h3>
-            <dl class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300">
-              <div class="flex justify-between"><dt>زمان</dt><dd>۲۱–۲۳ مهر ۱۴۰۴</dd></div>
-              <div class="flex justify-between"><dt>مدت</dt><dd>۴۸ ساعت</dd></div>
-              <div class="flex justify-between"><dt>محل</dt><dd>آنلاین</dd></div>
-              <div class="flex justify-between"><dt>ظرفیت</dt><dd>۲۰۰ نفر</dd></div>
-            </dl>
-            <a id="apply" href="#" class="btn-primary mt-4 block text-center">ثبت‌نام</a>
-          </div>
-        </aside>
-      </section>
+      <p id="count" class="mt-2 text-sm text-slate-600 dark:text-slate-300"></p>
+
+      <div id="grid" class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
     </main>
 
     <footer class="border-t border-slate-200/70 dark:border-slate-800/70 bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-950/30 dark:to-green-950/30">
@@ -178,7 +142,61 @@
       </div>
     </footer>
 
+    <script src="./assets/events.js"></script>
     <script src="./assets/app.js"></script>
+    <script>
+      (function () {
+        function getParam(name) {
+          const url = new URL(window.location.href);
+          return url.searchParams.get(name);
+        }
+
+        function renderEvents(events) {
+          const grid = document.getElementById('grid');
+          grid.innerHTML = '';
+          events.forEach((ev) => {
+            const a = document.createElement('a');
+            a.href = ev.link;
+            a.className = 'card';
+            a.innerHTML = `
+              <div class="card-badge">${ev.badge}</div>
+              <h3 class="card-title">${ev.title}</h3>
+              <p class="card-sub">${ev.dateText}</p>
+              <div class="card-tags">${ev.tags.map(t => `<span class="tag" data-tag="${t}">${t}</span>`).join('')}</div>
+            `;
+            grid.appendChild(a);
+          });
+        }
+
+        const allEvents = window.IranHackEvents || [];
+        const tag = getParam('tag');
+        const title = document.getElementById('title');
+        if (tag) {
+          title.textContent = `برچسب: ${tag}`;
+        } else {
+          title.textContent = 'همه برچسب‌ها';
+        }
+
+        const filtered = tag ? allEvents.filter(ev => ev.tags.includes(tag)) : allEvents;
+        const count = document.getElementById('count');
+        count.textContent = `${filtered.length} رویداد`;
+        renderEvents(filtered);
+
+        // Simple search within the filtered set
+        const search = document.getElementById('search');
+        if (search) {
+          search.addEventListener('input', () => {
+            const q = search.value.trim();
+            const list = filtered.filter((ev) =>
+              ev.title.includes(q) || ev.dateText.includes(q) || ev.tags.join(' ').includes(q)
+            );
+            count.textContent = `${list.length} رویداد`;
+            renderEvents(list);
+          });
+        }
+      })();
+    </script>
   </body>
   </html>
+
 
