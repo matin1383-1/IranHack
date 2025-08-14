@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>پروفایل کاربر — IranHack</title>
+    <meta name="description" content="پروفایل کاربر در IranHack - مدیریت اطلاعات شخصی و تنظیمات" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: { sans: ['Vazirmatn', 'ui-sans-serif', 'system-ui', 'sans-serif'] },
+            colors: {
+              brand: {
+                50: '#f0fdfa', 100: '#ccfbf1', 200: '#99f6e4', 300: '#5eead4',
+                400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e',
+                800: '#115e59', 900: '#134e4a', 950: '#042f2e',
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <link href="./assets/styles.css" rel="stylesheet" />
+  </head>
+  <body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans">
+    <header class="sticky top-0 z-20 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-slate-950/60 border-b border-slate-200/60 dark:border-slate-800/60">
+      <nav class="container flex items-center gap-4 py-3">
+        <a href="./index.html" class="flex items-center gap-2 text-lg font-extrabold">
+          <span class="inline-block size-6 rounded bg-gradient-to-tr from-brand-500 to-emerald-500"></span>
+          IranHack
+        </a>
+        <div class="ms-auto flex items-center gap-2 desktop-nav">
+          <a href="./hackathons.html" class="nav-link">هکاتون‌ها</a>
+          <a href="./about.html" class="nav-link">درباره</a>
+          <a href="./profile.html" class="nav-link active" aria-label="پروفایل" title="پروفایل">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+            </svg>
+          </a>
+          <button id="theme-toggle" class="icon-btn" aria-label="تغییر تم" title="تغییر تم">
+            <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 hidden dark:block"><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/><path d="M12 2.25a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0V3A.75.75 0 0 1 12 2.25Zm0 16.5a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5a.75.75 0 0 1 .75-.75ZM4.72 4.72a.75.75 0 0 1 1.06 0l1.06 1.06a.75.75 0 1 1-1.06 1.06L4.72 5.78a.75.75 0 0 1 0-1.06Zm12.44 12.44a.75.75 0 0 1 1.06 0l1.06 1.06a.75.75 0 1 1-1.06 1.06l-1.06-1.06a.75.75 0 0 1 0-1.06ZM2.25 12a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1-.75-.75Zm16.5 0a.75.75 0 0 1 .75-.75h1.5a.75.75 0 1 1 0 1.5h-1.5a.75.75 0 0 1-.75-.75ZM4.72 19.28a.75.75 0 0 1 0-1.06l1.06-1.06a.75.75 0 1 1 1.06 1.06L5.78 19.28a.75.75 0 0 1-1.06 0Zm12.44-12.44a.75.75 0 0 1 0-1.06l1.06-1.06a.75.75 0 1 1 1.06 1.06L17.16 6.84a.75.75 0 0 1-1.06 0Z"/></svg>
+            <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 dark:hidden"><path d="M21.752 15.002a9 9 0 1 1-12.75-12.75.75.75 0 0 1 .977.977 7.5 7.5 0 0 0 9.796 9.796.75.75 0 0 1 .977.977Z"/></svg>
+          </button>
+        </div>
+        <button id="hamburger-btn" class="hamburger-btn" aria-label="منو" title="منو">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+      <div class="mobile-menu-header">
+        <a href="./index.html" class="flex items-center gap-2 text-lg font-extrabold">
+          <span class="inline-block size-6 rounded bg-gradient-to-tr from-brand-500 to-emerald-500"></span>
+          IranHack
+        </a>
+        <button id="mobile-close" class="icon-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5">
+            <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L5.78 19.28a.75.75 0 0 1-1.06 0Zm12.44-12.44a.75.75 0 0 1 0-1.06l1.06-1.06a.75.75 0 1 1 1.06 1.06L17.16 6.84a.75.75 0 0 1-1.06 0Z" clip-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
+      <nav class="mobile-menu-nav">
+        <a href="./hackathons.html" class="nav-link">هکاتون‌ها</a>
+        <a href="./about.html" class="nav-link">درباره</a>
+        <a href="./profile.html" class="nav-link active" aria-label="پروفایل" title="پروفایل">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+          </svg>
+        </a>
+      </nav>
+    </div>
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+
+    <main class="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+      <div class="container py-8">
+        <!-- Profile Header -->
+        <div class="mb-8">
+          <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 md:p-8">
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+              <!-- Profile Avatar -->
+              <div class="relative">
+                <div class="size-24 md:size-32 rounded-full bg-gradient-to-tr from-brand-500 to-emerald-500 flex items-center justify-center text-white text-2xl md:text-4xl font-bold shadow-lg">
+                  <span id="user-initials">ع</span>
+                </div>
+                <button class="absolute bottom-0 right-0 size-8 md:size-10 bg-white dark:bg-slate-700 rounded-full border-2 border-brand-500 flex items-center justify-center text-brand-500 hover:bg-brand-50 dark:hover:bg-brand-900/20 transition-colors">
+                  <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                  </svg>
+                </button>
+              </div>
+              
+              <!-- Profile Info -->
+              <div class="flex-1">
+                <h1 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-2">
+                  <span id="user-name">علی احمدی</span>
+                </h1>
+                <p class="text-slate-600 dark:text-slate-300 mb-3">
+                  <span id="user-email">ali.ahmadi@example.com</span>
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="chip">توسعه‌دهنده</span>
+                  <span class="chip">React</span>
+                  <span class="chip">Node.js</span>
+                  <span class="chip">Python</span>
+                </div>
+              </div>
+              
+              <!-- Action Buttons -->
+              <div class="flex gap-3">
+                <button class="btn-primary">
+                  <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                  </svg>
+                  ویرایش پروفایل
+                </button>
+                <button class="btn-ghost">
+                  <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
+                  </svg>
+                  اشتراک‌گذاری
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+              </div>
+
+        <!-- Profile Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Left Column - Stats & Info -->
+          <div class="lg:col-span-1 space-y-6">
+            <!-- Statistics -->
+            <div class="card">
+              <h3 class="card-title">آمار فعالیت</h3>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="text-center p-4 bg-gradient-to-br from-brand-50 to-emerald-50 dark:from-brand-900/20 dark:to-emerald-900/20 rounded-xl">
+                  <div class="text-2xl font-bold text-brand-600 dark:text-brand-400">۱۲</div>
+                  <div class="text-sm text-slate-600 dark:text-slate-300">هکاتون شرکت کرده</div>
+                </div>
+                <div class="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-xl">
+                  <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">۵</div>
+                  <div class="text-sm text-slate-600 dark:text-slate-300">جایزه کسب شده</div>
+                </div>
+                <div class="text-center p-4 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl">
+                  <div class="text-2xl font-bold text-purple-600 dark:text-purple-400">۸</div>
+                  <div class="text-sm text-slate-600 dark:text-slate-300">پروژه ساخته</div>
+                </div>
+                <div class="text-center p-4 bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-xl">
+                  <div class="text-2xl font-bold text-orange-600 dark:text-orange-400">۱۵</div>
+                  <div class="text-sm text-slate-600 dark:text-slate-300">روز فعال</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Personal Info -->
+            <div class="card">
+              <h3 class="card-title">اطلاعات شخصی</h3>
+              <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                  <svg class="size-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                  <div>
+                    <div class="text-sm text-slate-500 dark:text-slate-400">نام کامل</div>
+                    <div class="font-medium">علی احمدی</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <svg class="size-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <div>
+                    <div class="text-sm text-slate-500 dark:text-slate-400">ایمیل</div>
+                    <div class="font-medium">ali.ahmadi@example.com</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <svg class="size-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  <div>
+                    <div class="text-sm text-slate-500 dark:text-slate-400">موقعیت</div>
+                    <div class="font-medium">تهران، ایران</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <svg class="size-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6" />
+                  </svg>
+                  <div>
+                    <div class="text-sm text-slate-500 dark:text-slate-400">شغل</div>
+                    <div class="font-medium">توسعه‌دهنده نرم‌افزار</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Skills -->
+            <div class="card">
+              <h3 class="card-title">مهارت‌ها</h3>
+              <div class="space-y-3">
+                <div>
+                  <div class="flex justify-between text-sm mb-1">
+                    <span>React</span>
+                    <span>۹۰%</span>
+                  </div>
+                  <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2">
+                    <div class="bg-gradient-to-r from-brand-500 to-emerald-500 h-2 rounded-full" style="width: 90%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-sm mb-1">
+                    <span>Node.js</span>
+                    <span>۸۵%</span>
+                  </div>
+                  <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2">
+                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 85%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-sm mb-1">
+                    <span>Python</span>
+                    <span>۷۵%</span>
+                  </div>
+                  <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2">
+                    <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style="width: 75%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-sm mb-1">
+                    <span>Docker</span>
+                    <span>۷۰%</span>
+                  </div>
+                  <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2">
+                    <div class="bg-gradient-to-r from-orange-500 to-red-500 h-2 rounded-full" style="width: 70%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column - Activity & Settings -->
+          <div class="lg:col-span-2 space-y-6">
+            <!-- Hackathons Section -->
+            <div class="card">
+              <div class="flex items-center justify-between mb-6">
+                <h3 class="card-title">هکاتون‌های من</h3>
+                <button class="btn-ghost text-sm">مشاهده همه</button>
+              </div>
+              
+              <!-- Tabs -->
+              <div class="flex border-b border-slate-200 dark:border-slate-700 mb-6">
+                <button class="px-4 py-2 text-sm font-medium text-brand-600 dark:text-brand-400 border-b-2 border-brand-600 dark:border-brand-400" data-tab="attended">
+                  شرکت کرده (۸)
+                </button>
+                <button class="px-4 py-2 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300" data-tab="upcoming">
+                  ثبت‌نام شده (۴)
+                </button>
+              </div>
+              
+              <!-- Attended Hackathons -->
+              <div id="attended-tab" class="space-y-4">
+                <div class="flex items-start gap-4 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
+                  <div class="size-12 bg-gradient-to-br from-brand-500 to-emerald-500 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+                    AI
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center gap-2 mb-1">
+                      <h4 class="font-semibold">هکاتون هوش مصنوعی تهران</h4>
+                      <span class="px-2 py-1 text-xs bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full">تکمیل شده</span>
+                    </div>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-2">۲۱ مهر ۱۴۰۴ • ۴۸ ساعت • جایزه ۵۰۰ میلیون ریال</p>
+                    <div class="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
+                      <span>🏆 رتبه اول</span>
+                      <span>👥 تیم ۴ نفره</span>
+                      <span>📅 ۲ روز پیش</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="flex items-start gap-4 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
+                  <div class="size-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+                    W3
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center gap-2 mb-1">
+                      <h4 class="font-semibold">هکاتون وب۳ اصفهان</h4>
+                      <span class="px-2 py-1 text-xs bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full">تکمیل شده</span>
+                    </div>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-2">۵ آبان ۱۴۰۴ • ۳۶ ساعت • جایزه ۲۰۰ میلیون ریال</p>
+                    <div class="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
+                      <span>🥈 رتبه دوم</span>
+                      <span>👥 تیم ۳ نفره</span>
+                      <span>📅 ۱ هفته پیش</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="flex items-start gap-4 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
+                  <div class="size-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+                    FT
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center gap-2 mb-1">
+                      <h4 class="font-semibold">هکاتون فین‌تک شیراز</h4>
+                      <span class="px-2 py-1 text-xs bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-full">شرکت کرده</span>
+                    </div>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-2">۲۸ مهر ۱۴۰۴ • ۷۲ ساعت • جایزه ۳۰۰ میلیون ریال</p>
+                    <div class="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
+                      <span>👥 تیم ۲ نفره</span>
+                      <span>📅 ۲ هفته پیش</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Upcoming Hackathons -->
+              <div id="upcoming-tab" class="space-y-4 hidden">
+                <div class="flex items-start gap-4 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
+                  <div class="size-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+                    ML
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center gap-2 mb-1">
+                      <h4 class="font-semibold">هکاتون یادگیری ماشین</h4>
+                      <span class="px-2 py-1 text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full">ثبت‌نام شده</span>
+                    </div>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-2">۱۵ آبان ۱۴۰۴ • ۲۴ ساعت • جایزه ۱۵۰ میلیون ریال</p>
+                    <div class="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
+                      <span>⏰ شروع: ۳ روز دیگر</span>
+                      <span>👥 تیم ۲ نفره</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="flex items-start gap-4 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
+                  <div class="size-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+                    IoT
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center gap-2 mb-1">
+                      <h4 class="font-semibold">هکاتون اینترنت اشیاء</h4>
+                      <span class="px-2 py-1 text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full">ثبت‌نام شده</span>
+                    </div>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-2">۲۲ آبان ۱۴۰۴ • ۴۸ ساعت • جایزه ۲۵۰ میلیون ریال</p>
+                    <div class="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
+                      <span>⏰ شروع: ۱۰ روز دیگر</span>
+                      <span>👥 تیم ۳ نفره</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="flex items-start gap-4 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
+                  <div class="size-12 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+                    AR
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center gap-2 mb-1">
+                      <h4 class="font-semibold">هکاتون واقعیت افزوده</h4>
+                      <span class="px-2 py-1 text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full">ثبت‌نام شده</span>
+                    </div>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-2">۲۹ آبان ۱۴۰۴ • ۳۶ ساعت • جایزه ۱۸۰ میلیون ریال</p>
+                    <div class="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
+                      <span>⏰ شروع: ۱۷ روز دیگر</span>
+                      <span>👥 تیم ۴ نفره</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="card">
+              <div class="flex items-center justify-between mb-6">
+                <h3 class="card-title">فعالیت‌های اخیر</h3>
+                <button class="btn-ghost text-sm">مشاهده همه</button>
+              </div>
+              <div class="space-y-4">
+                <div class="flex items-start gap-4 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
+                  <div class="size-10 bg-brand-100 dark:bg-brand-900/30 rounded-full flex items-center justify-center">
+                    <svg class="size-5 text-brand-600 dark:text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <div class="font-medium">در هکاتون "هوش مصنوعی" شرکت کردید</div>
+                    <div class="text-sm text-slate-500 dark:text-slate-400">۲ روز پیش</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
+                  <div class="size-10 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center">
+                    <svg class="size-5 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <div class="font-medium">جایزه اول در هکاتون "وب ۳" دریافت کردید</div>
+                    <div class="text-sm text-slate-500 dark:text-slate-400">۱ هفته پیش</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
+                  <div class="size-10 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center">
+                    <svg class="size-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <div class="font-medium">پروژه جدید "سیستم مدیریت" ایجاد کردید</div>
+                    <div class="text-sm text-slate-500 dark:text-slate-400">۲ هفته پیش</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Settings -->
+            <div class="card">
+              <h3 class="card-title">تنظیمات</h3>
+              <div class="space-y-6">
+                <!-- Account Settings -->
+                <div>
+                  <h4 class="font-semibold text-slate-900 dark:text-white mb-4">تنظیمات حساب کاربری</h4>
+                  <div class="space-y-4">
+                    <div class="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
+                      <div>
+                        <div class="font-medium">اعلان‌های ایمیل</div>
+                        <div class="text-sm text-slate-500 dark:text-slate-400">دریافت اعلان‌های جدید هکاتون</div>
+                      </div>
+                      <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="sr-only peer" checked>
+                        <div class="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-brand-300 dark:peer-focus:ring-brand-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-slate-600 peer-checked:bg-brand-600"></div>
+                      </label>
+                    </div>
+                    <div class="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
+                      <div>
+                        <div class="font-medium">اعلان‌های پیامک</div>
+                        <div class="text-sm text-slate-500 dark:text-slate-400">دریافت پیامک برای رویدادهای مهم</div>
+                      </div>
+                      <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="sr-only peer">
+                        <div class="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-brand-300 dark:peer-focus:ring-brand-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-slate-600 peer-checked:bg-brand-600"></div>
+                      </label>
+                    </div>
+                    <div class="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
+                      <div>
+                        <div class="font-medium">نمایش عمومی پروفایل</div>
+                        <div class="text-sm text-slate-500 dark:text-slate-400">اجازه مشاهده پروفایل به سایر کاربران</div>
+                      </div>
+                      <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="sr-only peer" checked>
+                        <div class="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-brand-300 dark:peer-focus:ring-brand-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-slate-600 peer-checked:bg-brand-600"></div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Security Settings -->
+                <div>
+                  <h4 class="font-semibold text-slate-900 dark:text-white mb-4">امنیت</h4>
+                  <div class="space-y-3">
+                    <button class="w-full flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+                      <div class="flex items-center gap-3">
+                        <svg class="size-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                        <span class="font-medium">تغییر رمز عبور</span>
+                      </div>
+                      <svg class="size-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                    <button class="w-full flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+                      <div class="flex items-center gap-3">
+                        <svg class="size-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                        <span class="font-medium">احراز هویت دو مرحله‌ای</span>
+                      </div>
+                      <svg class="size-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                    <button class="w-full flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+                      <div class="flex items-center gap-3">
+                        <svg class="size-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span class="font-medium">جلسات فعال</span>
+                      </div>
+                      <svg class="size-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Danger Zone -->
+                <div>
+                  <h4 class="font-semibold text-red-600 dark:text-red-400 mb-4">منطقه خطر</h4>
+                  <div class="space-y-3">
+                    <button class="w-full flex items-center justify-between p-4 bg-red-50 dark:bg-red-900/20 rounded-xl hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors text-red-600 dark:text-red-400">
+                      <div class="flex items-center gap-3">
+                        <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        </svg>
+                        <span class="font-medium">حذف حساب کاربری</span>
+                      </div>
+                      <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+    <footer class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700">
+      <div class="container py-8">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-2 text-lg font-extrabold">
+            <span class="inline-block size-6 rounded bg-gradient-to-tr from-brand-500 to-emerald-500"></span>
+            IranHack
+          </div>
+          <div class="flex items-center gap-6 text-sm text-slate-600 dark:text-slate-300">
+            <a href="./about.html" class="hover:text-slate-900 dark:hover:text-white transition-colors">درباره</a>
+            <a href="./rules.html" class="hover:text-slate-900 dark:hover:text-white transition-colors">قوانین</a>
+            <a href="./tags.html" class="hover:text-slate-900 dark:hover:text-white transition-colors">برچسب‌ها</a>
+            <span>© <span id="year" data-year="2024"></span> تمامی حقوق محفوظ است</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./assets/app.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Profile editing functionality
+        const editProfileBtn = document.querySelector('.btn-primary');
+        editProfileBtn.addEventListener('click', () => {
+          // TODO: Implement profile editing modal/form
+          alert('قابلیت ویرایش پروفایل به زودی اضافه خواهد شد');
+        });
+        
+        // Settings toggles
+        const toggles = document.querySelectorAll('input[type="checkbox"]');
+        toggles.forEach(toggle => {
+          toggle.addEventListener('change', (e) => {
+            // TODO: Save settings to backend
+            console.log(`${e.target.checked ? 'Enabled' : 'Disabled'}: ${e.target.closest('.flex').querySelector('.font-medium').textContent}`);
+          });
+        });
+        
+        // Settings buttons
+        const settingsButtons = document.querySelectorAll('.bg-slate-50 button');
+        settingsButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const action = button.querySelector('.font-medium').textContent;
+            // TODO: Implement settings actions
+            alert(`قابلیت ${action} به زودی اضافه خواهد شد`);
+          });
+        });
+        
+        // Hackathons tab functionality
+        const tabButtons = document.querySelectorAll('[data-tab]');
+        const tabContents = document.querySelectorAll('#attended-tab, #upcoming-tab');
+        
+        tabButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const targetTab = button.getAttribute('data-tab');
+            
+            // Update tab button styles
+            tabButtons.forEach(btn => {
+              btn.classList.remove('text-brand-600', 'dark:text-brand-400', 'border-b-2', 'border-brand-600', 'dark:border-brand-400');
+              btn.classList.add('text-slate-500', 'dark:text-slate-400');
+            });
+            
+            button.classList.remove('text-slate-500', 'dark:text-slate-400');
+            button.classList.add('text-brand-600', 'dark:text-brand-400', 'border-b-2', 'border-brand-600', 'dark:border-brand-400');
+            
+            // Show/hide tab contents
+            tabContents.forEach(content => {
+              if (content.id === `${targetTab}-tab`) {
+                content.classList.remove('hidden');
+              } else {
+                content.classList.add('hidden');
+              }
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

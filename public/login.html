@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ورود / ثبت‌نام — IranHack</title>
+    <meta name="description" content="ورود و ثبت‌نام در IranHack - پلتفرم هکاتون‌های ایران" />
+    
+    <!-- Google Fonts - Vazirmatn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              'sans': ['Vazirmatn', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                50: '#f0fdfa',
+                100: '#ccfbf1',
+                200: '#99f6e4',
+                300: '#5eead4',
+                400: '#2dd4bf',
+                500: '#14b8a6',
+                600: '#0d9488',
+                700: '#0f766e',
+                800: '#115e59',
+                900: '#134e4a',
+                950: '#042f2e',
+              },
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-in-out',
+              'slide-up': 'slideUp 0.6s ease-out',
+              'float': 'float 6s ease-in-out infinite',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(20px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <link href="./assets/styles.css" rel="stylesheet" />
+  </head>
+  <body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
+    <!-- Back Button -->
+    <div class="fixed top-6 left-6 z-50">
+      <a href="./index.html" class="flex items-center gap-2 px-4 py-2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-800 transition-all duration-200 shadow-lg hover:shadow-xl">
+        <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        <span class="font-medium">بازگشت</span>
+      </a>
+    </div>
+
+    <!-- Full Page Layout -->
+    <div class="min-h-screen flex flex-col lg:flex-row">
+      <!-- Left Side - Login Form -->
+      <div class="w-full lg:w-1/2 flex items-center justify-center p-6 lg:p-12 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+        <div class="w-full max-w-md animate-fade-in">
+          <!-- Logo and Title -->
+          <div class="text-center mb-10 animate-slide-up">
+            <div class="flex items-center justify-center gap-4 mb-6">
+              <div class="relative">
+                <span class="inline-block size-16 rounded-2xl bg-gradient-to-tr from-brand-500 to-emerald-500 shadow-lg"></span>
+                <div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-brand-400 to-emerald-400 opacity-20 animate-pulse"></div>
+              </div>
+              <h1 class="text-3xl font-black bg-gradient-to-r from-brand-600 to-emerald-600 bg-clip-text text-transparent">IranHack</h1>
+            </div>
+            <p class="text-lg text-slate-600 dark:text-slate-300 font-medium">پلتفرم هکاتون‌های ایران</p>
+          </div>
+
+          <!-- Auth Tabs -->
+          <div class="flex mb-8 bg-slate-200 dark:bg-slate-700 rounded-xl p-1">
+            <button id="tab-login" class="w-1/2 py-3 text-center font-semibold rounded-lg bg-white dark:bg-slate-800 text-brand-600 dark:text-brand-400 shadow-sm transition-all duration-200">
+              ورود
+            </button>
+            <button id="tab-signup" class="w-1/2 py-3 text-center font-semibold text-slate-600 dark:text-slate-300 rounded-lg transition-all duration-200 hover:text-slate-900 dark:hover:text-slate-100">
+              ثبت‌نام
+            </button>
+          </div>
+
+          <!-- Login Form -->
+          <form id="form-login" class="space-y-6 animate-slide-up">
+            <!-- Email -->
+            <div class="space-y-2">
+              <label for="login-email" class="block text-sm font-semibold text-slate-700 dark:text-slate-300">ایمیل</label>
+              <div class="relative">
+                <input
+                  type="email"
+                  id="login-email"
+                  class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all duration-200"
+                  placeholder="example@email.com"
+                  required
+                />
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <svg class="size-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div class="space-y-2">
+              <label for="login-password" class="block text-sm font-semibold text-slate-700 dark:text-slate-300">رمز عبور</label>
+              <div class="relative">
+                <input
+                  type="password"
+                  id="login-password"
+                  class="w-full px-4 py-3 pr-12 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all duration-200"
+                  placeholder="••••••••"
+                  required
+                />
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <svg class="size-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                </div>
+                <button
+                  type="button"
+                  id="login-password-toggle"
+                  class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors duration-200"
+                >
+                  <svg id="login-password-eye" class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                  <svg id="login-password-eye-slash" class="size-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Remember Me & Forgot Password -->
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <input
+                  type="checkbox"
+                  id="remember-me"
+                  class="size-4 rounded border-slate-300 dark:border-slate-600 text-brand-500 focus:ring-brand-500 focus:ring-offset-0"
+                />
+                <label for="remember-me" class="mr-2 text-sm font-medium text-slate-700 dark:text-slate-300">مرا به خاطر بسپار</label>
+              </div>
+              <a href="#" class="text-sm font-medium text-brand-600 hover:text-brand-500 transition-colors duration-200">فراموشی رمز عبور؟</a>
+            </div>
+
+            <!-- Login Button -->
+            <button
+              type="submit"
+              class="w-full py-3 px-4 bg-gradient-to-r from-brand-600 to-emerald-600 hover:from-brand-700 hover:to-emerald-700 text-white font-semibold rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 transform hover:scale-[1.02] transition-all duration-200 shadow-lg hover:shadow-xl"
+            >
+              ورود
+            </button>
+
+            <!-- Divider -->
+            <div class="relative my-8">
+              <div class="absolute inset-0 flex items-center">
+                <div class="w-full border-t border-slate-300 dark:border-slate-600"></div>
+              </div>
+              <div class="relative flex justify-center text-sm">
+                <span class="px-4 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 text-slate-500 font-medium">یا</span>
+              </div>
+            </div>
+
+            <!-- Google Login -->
+            <button
+              type="button"
+              class="w-full flex items-center justify-center gap-3 py-3 px-4 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 font-semibold rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 transform hover:scale-[1.02] transition-all duration-200 shadow-sm hover:shadow-md"
+            >
+              <svg class="size-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23.766 12.2764C23.766 11.4607 23.6999 10.6406 23.5588 9.83807H12.24V14.4591H18.7217C18.4528 15.9494 17.5885 17.2678 16.323 18.1056V21.1039H20.19C22.4608 19.0139 23.766 15.9274 23.766 12.2764Z" fill="#4285F4"/>
+                <path d="M12.2401 24.0008C15.4766 24.0008 18.2059 22.9382 20.1945 21.1039L16.3276 18.1055C15.2517 18.8375 13.8627 19.252 12.2445 19.252C9.11388 19.252 6.45946 17.1399 5.50705 14.3003H1.5166V17.3912C3.55371 21.4434 7.7029 24.0008 12.2401 24.0008Z" fill="#34A853"/>
+                <path d="M5.50253 14.3003C4.99987 12.8099 4.99987 11.1961 5.50253 9.70575V6.61481H1.51649C-0.18551 10.0056 -0.18551 14.0004 1.51649 17.3912L5.50253 14.3003Z" fill="#FBBC04"/>
+                <path d="M12.2401 4.74966C13.9509 4.7232 15.6044 5.36697 16.8434 6.54867L20.2695 3.12262C18.1001 1.0855 15.2208 -0.034466 12.2401 0.000808666C7.7029 0.000808666 3.55371 2.55822 1.5166 6.61481L5.50264 9.70575C6.45064 6.86173 9.10947 4.74966 12.2401 4.74966Z" fill="#EA4335"/>
+              </svg>
+              ادامه با گوگل
+            </button>
+          </form>
+
+          <!-- Signup Form (Hidden by default) -->
+          <form id="form-signup" class="hidden space-y-6 animate-slide-up">
+            <!-- Name -->
+            <div class="space-y-2">
+              <label for="signup-name" class="block text-sm font-semibold text-slate-700 dark:text-slate-300">نام و نام خانوادگی</label>
+              <div class="relative">
+                <input
+                  type="text"
+                  id="signup-name"
+                  class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all duration-200"
+                  placeholder="نام و نام خانوادگی"
+                  required
+                />
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <svg class="size-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Email -->
+            <div class="space-y-2">
+              <label for="signup-email" class="block text-sm font-semibold text-slate-700 dark:text-slate-300">ایمیل</label>
+              <div class="relative">
+                <input
+                  type="email"
+                  id="signup-email"
+                  class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all duration-200"
+                  placeholder="example@email.com"
+                  required
+                />
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <svg class="size-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div class="space-y-2">
+              <label for="signup-password" class="block text-sm font-semibold text-slate-700 dark:text-slate-300">رمز عبور</label>
+              <div class="relative">
+                <input
+                  type="password"
+                  id="signup-password"
+                  class="w-full px-4 py-3 pr-12 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all duration-200"
+                  placeholder="••••••••"
+                  required
+                />
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <svg class="size-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                </div>
+                <button
+                  type="button"
+                  id="signup-password-toggle"
+                  class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors duration-200"
+                >
+                  <svg id="signup-password-eye" class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                  <svg id="signup-password-eye-slash" class="size-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="space-y-2">
+              <label for="signup-confirm-password" class="block text-sm font-semibold text-slate-700 dark:text-slate-300">تکرار رمز عبور</label>
+              <div class="relative">
+                <input
+                  type="password"
+                  id="signup-confirm-password"
+                  class="w-full px-4 py-3 pr-12 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all duration-200"
+                  placeholder="••••••••"
+                  required
+                />
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <svg class="size-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                </div>
+                <button
+                  type="button"
+                  id="signup-confirm-password-toggle"
+                  class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors duration-200"
+                >
+                  <svg id="signup-confirm-password-eye" class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                  <svg id="signup-confirm-password-eye-slash" class="size-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Terms -->
+            <div class="flex items-start">
+              <input
+                type="checkbox"
+                id="terms"
+                class="size-4 mt-1 rounded border-slate-300 dark:border-slate-600 text-brand-500 focus:ring-brand-500 focus:ring-offset-0"
+                required
+              />
+              <label for="terms" class="mr-2 text-sm font-medium text-slate-700 dark:text-slate-300">
+                با <a href="#" class="text-brand-600 hover:text-brand-500 transition-colors duration-200">قوانین و مقررات</a> موافقم
+              </label>
+            </div>
+
+            <!-- Signup Button -->
+            <button
+              type="submit"
+              class="w-full py-3 px-4 bg-gradient-to-r from-brand-600 to-emerald-600 hover:from-brand-700 hover:to-emerald-700 text-white font-semibold rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 transform hover:scale-[1.02] transition-all duration-200 shadow-lg hover:shadow-xl"
+            >
+              ثبت‌نام
+            </button>
+
+            <!-- Divider -->
+            <div class="relative my-8">
+              <div class="absolute inset-0 flex items-center">
+                <div class="w-full border-t border-slate-300 dark:border-slate-600"></div>
+              </div>
+              <div class="relative flex justify-center text-sm">
+                <span class="px-4 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 text-slate-500 font-medium">یا</span>
+              </div>
+            </div>
+
+            <!-- Google Signup -->
+            <button
+              type="button"
+              class="w-full flex items-center justify-center gap-3 py-3 px-4 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 font-semibold rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 transform hover:scale-[1.02] transition-all duration-200 shadow-sm hover:shadow-md"
+            >
+              <svg class="size-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23.766 12.2764C23.766 11.4607 23.6999 10.6406 23.5588 9.83807H12.24V14.4591H18.7217C18.4528 15.9494 17.5885 17.2678 16.323 18.1056V21.1039H20.19C22.4608 19.0139 23.766 15.9274 23.766 12.2764Z" fill="#4285F4"/>
+                <path d="M12.2401 24.0008C15.4766 24.0008 18.2059 22.9382 20.1945 21.1039L16.3276 18.1055C15.2517 18.8375 13.8627 19.252 12.2445 19.252C9.11388 19.252 6.45946 17.1399 5.50705 14.3003H1.5166V17.3912C3.55371 21.4434 7.7029 24.0008 12.2401 24.0008Z" fill="#34A853"/>
+                <path d="M5.50253 14.3003C4.99987 12.8099 4.99987 11.1961 5.50253 9.70575V6.61481H1.51649C-0.18551 10.0056 -0.18551 14.0004 1.51649 17.3912L5.50253 14.3003Z" fill="#FBBC04"/>
+                <path d="M12.2401 4.74966C13.9509 4.7232 15.6044 5.36697 16.8434 6.54867L20.2695 3.12262C18.1001 1.0855 15.2208 -0.034466 12.2401 0.000808666C7.7029 0.000808666 3.55371 2.55822 1.5166 6.61481L5.50264 9.70575C6.45064 6.86173 9.10947 4.74966 12.2401 4.74966Z" fill="#EA4335"/>
+              </svg>
+              ادامه با گوگل
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Right Side - Banner -->
+      <div class="hidden lg:block lg:w-1/2 bg-gradient-to-br from-brand-500 via-emerald-500 to-teal-600 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+          <svg class="w-full h-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+              </pattern>
+            </defs>
+            <rect width="100" height="100" fill="url(#grid)" />
+          </svg>
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="absolute top-20 left-20 w-16 h-16 bg-white/20 rounded-full blur-sm animate-float"></div>
+        <div class="absolute top-40 right-32 w-12 h-12 bg-white/15 rounded-full blur-sm animate-float" style="animation-delay: 1s;"></div>
+        <div class="absolute bottom-32 left-16 w-20 h-20 bg-white/10 rounded-full blur-sm animate-float" style="animation-delay: 2s;"></div>
+        <div class="absolute bottom-20 right-20 w-14 h-14 bg-white/25 rounded-full blur-sm animate-float" style="animation-delay: 3s;"></div>
+
+        <!-- Banner Content -->
+        <div class="relative z-10 flex flex-col justify-center h-full p-12 text-white animate-fade-in">
+          <!-- Logo -->
+          <div class="flex items-center gap-4 mb-10 animate-slide-up">
+            <div class="relative">
+              <span class="inline-block size-20 rounded-2xl bg-white/20 backdrop-blur-sm"></span>
+              <div class="absolute inset-0 rounded-2xl bg-white/10 animate-pulse"></div>
+            </div>
+            <h2 class="text-4xl font-black">IranHack</h2>
+          </div>
+
+          <!-- Welcome Text -->
+          <div class="mb-16 animate-slide-up" style="animation-delay: 0.2s;">
+            <h1 class="text-5xl font-black mb-6 leading-tight">به پلتفرم هکاتون‌های ایران خوش آمدید</h1>
+            <p class="text-2xl text-white/90 font-medium leading-relaxed">اینجا محل تلاقی ایده‌ها، خلاقیت‌ها و نوآوری‌های شماست</p>
+          </div>
+
+          <!-- Features -->
+          <div class="space-y-8 mb-16 animate-slide-up" style="animation-delay: 0.4s;">
+            <div class="flex items-start gap-4 group">
+              <div class="size-10 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0 group-hover:bg-white/30 transition-all duration-300">
+                <svg class="size-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-2">دسترسی به رویدادهای برتر</h3>
+                <p class="text-white/80 text-lg">شرکت در هکاتون‌های معتبر سراسر کشور</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 group">
+              <div class="size-10 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0 group-hover:bg-white/30 transition-all duration-300">
+                <svg class="size-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17 20H22V18C22 16.3431 20.6569 15 19 15C18.0444 15 17.1931 15.4468 16.6438 16.1429M17 20H7M17 20V18C17 17.3438 16.8736 16.717 16.6438 16.1429M7 20H2V18C2 16.3431 3.34315 15 5 15C5.95561 15 6.80686 15.4468 7.35625 16.1429M7 20V18C7 17.3438 7.12642 16.717 7.35625 16.1429M7.35625 16.1429C8.0935 14.301 9.89482 13 12 13C14.1052 13 15.9065 14.301 16.6438 16.1429M15 7C15 8.65685 13.6569 10 12 10C10.3431 10 9 8.65685 9 7C9 5.34315 10.3431 4 12 4C13.6569 4 15 5.34315 15 7ZM21 10C21 11.1046 20.1046 12 19 12C17.8954 12 17 11.1046 17 10C17 8.89543 17.8954 8 19 8C20.1046 8 21 8.89543 21 10ZM7 10C7 11.1046 6.10457 12 5 12C3.89543 12 3 11.1046 3 10C3 8.89543 3.89543 8 5 8C6.10457 8 7 8.89543 7 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-2">شبکه‌سازی حرفه‌ای</h3>
+                <p class="text-white/80 text-lg">ارتباط با متخصصان و کارآفرینان برتر</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 group">
+              <div class="size-10 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0 group-hover:bg-white/30 transition-all duration-300">
+                <svg class="size-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 16L12 8M12 8L15 11M12 8L9 11M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-2">فرصت‌های سرمایه‌گذاری</h3>
+                <p class="text-white/80 text-lg">جذب سرمایه برای ایده‌های نوآورانه</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stats -->
+          <div class="flex justify-between animate-slide-up" style="animation-delay: 0.6s;">
+            <div class="text-center group">
+              <p class="text-4xl font-black mb-2 group-hover:scale-110 transition-transform duration-300">۱۵۰+</p>
+              <p class="text-white/80 text-lg font-medium">هکاتون</p>
+            </div>
+            <div class="text-center group">
+              <p class="text-4xl font-black mb-2 group-hover:scale-110 transition-transform duration-300">۱۲K+</p>
+              <p class="text-white/80 text-lg font-medium">شرکت‌کننده</p>
+            </div>
+            <div class="text-center group">
+              <p class="text-4xl font-black mb-2 group-hover:scale-110 transition-transform duration-300">۵۰۰+</p>
+              <p class="text-white/80 text-lg font-medium">پروژه موفق</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Tab switching functionality
+      (function () {
+        const tabLogin = document.getElementById('tab-login');
+        const tabSignup = document.getElementById('tab-signup');
+        const formLogin = document.getElementById('form-login');
+        const formSignup = document.getElementById('form-signup');
+
+        function activate(tab) {
+          const isLogin = tab === 'login';
+          
+          // Toggle form visibility
+          formLogin.classList.toggle('hidden', !isLogin);
+          formSignup.classList.toggle('hidden', isLogin);
+          
+          // Update tab styles
+          if (isLogin) {
+            tabLogin.classList.add('bg-white', 'dark:bg-slate-800', 'text-brand-600', 'dark:text-brand-400', 'shadow-sm');
+            tabLogin.classList.remove('text-slate-600', 'dark:text-slate-300');
+            tabSignup.classList.remove('bg-white', 'dark:bg-slate-800', 'text-brand-600', 'dark:text-brand-400', 'shadow-sm');
+            tabSignup.classList.add('text-slate-600', 'dark:text-slate-300');
+          } else {
+            tabSignup.classList.add('bg-white', 'dark:bg-slate-800', 'text-brand-600', 'dark:text-brand-400', 'shadow-sm');
+            tabSignup.classList.remove('text-slate-600', 'dark:text-slate-300');
+            tabLogin.classList.remove('bg-white', 'dark:bg-slate-800', 'text-brand-600', 'dark:text-brand-400', 'shadow-sm');
+            tabLogin.classList.add('text-slate-600', 'dark:text-slate-300');
+          }
+        }
+
+        // Initialize with login mode
+        activate('login');
+
+        tabLogin.addEventListener('click', () => activate('login'));
+        tabSignup.addEventListener('click', () => activate('signup'));
+
+        // Form submission handlers
+        formLogin.addEventListener('submit', function(e) {
+          e.preventDefault();
+          // Add your login logic here
+          console.log('Login form submitted');
+        });
+
+        formSignup.addEventListener('submit', function(e) {
+          e.preventDefault();
+          // Add your signup logic here
+          console.log('Signup form submitted');
+        });
+
+        // Password toggle functionality
+        function setupPasswordToggle(inputId, toggleId, eyeId, eyeSlashId) {
+          const input = document.getElementById(inputId);
+          const toggle = document.getElementById(toggleId);
+          const eye = document.getElementById(eyeId);
+          const eyeSlash = document.getElementById(eyeSlashId);
+
+          toggle.addEventListener('click', function() {
+            if (input.type === 'password') {
+              input.type = 'text';
+              eye.classList.add('hidden');
+              eyeSlash.classList.remove('hidden');
+            } else {
+              input.type = 'password';
+              eye.classList.remove('hidden');
+              eyeSlash.classList.add('hidden');
+            }
+          });
+        }
+
+        // Setup password toggles
+        setupPasswordToggle('login-password', 'login-password-toggle', 'login-password-eye', 'login-password-eye-slash');
+        setupPasswordToggle('signup-password', 'signup-password-toggle', 'signup-password-eye', 'signup-password-eye-slash');
+        setupPasswordToggle('signup-confirm-password', 'signup-confirm-password-toggle', 'signup-confirm-password-eye', 'signup-confirm-password-eye-slash');
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+      })();
+    </script>
+
+    </script>
+  </body>
+</html> 

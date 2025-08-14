@@ -87,4 +87,3 @@ html {
 body.menu-open .desktop-nav { display: none !important; }
 /* Optionally hide the hamburger icon itself when menu is open (if desired) */
 /* body.menu-open .hamburger-btn { visibility: hidden; } */
-
