@@ -81,7 +81,7 @@ html {
 .hamburger-btn.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
 .hamburger-btn.open span:nth-child(2) { opacity: 0; }
 .hamburger-btn.open span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
-@media (max-width: 768px) { .hamburger-btn { display: flex; } .desktop-nav { display: none; } }
+@media (max-width: 768px) { .hamburger-btn { display: flex; } .desktop-nav { display: none !important; } }
 
 /* Hide desktop nav when menu is open */
 body.menu-open .desktop-nav { display: none !important; }
