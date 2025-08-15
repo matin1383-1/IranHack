@@ -141,3 +141,6 @@ body.menu-open .desktop-nav { display: none !important; }
     margin-bottom: 0;
   }
 }
+.features-section {
+  margin-top: 0 !important;
+}
