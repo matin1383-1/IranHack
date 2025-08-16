@@ -52,193 +52,311 @@
       </nav>
     </header>
 
-    <main class="container py-8">
-      <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
-        <h1 class="text-2xl font-extrabold">هکاتون‌ها</h1>
-        <div class="ms-auto w-full sm:w-96">
-          <label class="sr-only" for="search">جست‌وجو</label>
-          <input id="search" type="search" placeholder="جست‌وجوی هکاتون..." class="w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500" />
+    <main class="py-8">
+      <!-- Hero Section -->
+      <section class="container mb-12">
+        <div class="text-center mb-8">
+          <h1 class="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">هکاتون‌های ایران</h1>
+          <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">در رویدادهای هیجان‌انگیز برنامه‌نویسی شرکت کنید، مهارت‌های خود را به چالش بکشید و جوایز ارزشمند برنده شوید</p>
         </div>
-      </div>
 
-      <div class="mt-6 flex flex-wrap gap-2 text-sm" aria-label="فیلترها">
-        <button class="chip">همه</button>
-        <button class="chip">هوش مصنوعی</button>
-        <button class="chip">فین‌تک</button>
-        <button class="chip">دانشجویی</button>
-        <button class="chip">امنیت سایبری</button>
-        <button class="chip">سلامت دیجیتال</button>
-        <button class="chip">آموزش آنلاین</button>
-        <button class="chip">بلاکچین</button>
-        <button class="chip">بازی‌سازی</button>
-        <button class="chip">اینترنت اشیاء</button>
-        <button class="chip">آنلاین</button>
-        <button class="chip">حضوری</button>
-      </div>
+        <!-- Search and Filter Bar -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/60 dark:border-slate-800/60 p-6 shadow-lg">
+          <!-- Search Row -->
+          <div class="flex flex-col lg:flex-row gap-4 mb-6">
+            <!-- Search Input -->
+            <div class="flex-1 relative">
+              <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+              <input id="search" type="search" placeholder="جست‌وجوی هکاتون..." class="w-full pr-10 pl-12 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+            </div>
 
-      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <a href="./event.html" class="card">
-          <div class="card-badge">آنلاین</div>
-          <h3 class="card-title">هکاتون هوش مصنوعی تهران</h3>
-          <p class="card-sub">۲۱ مهر ۱۴۰۴ • ۴۸ ساعت • جایزه ۵۰۰ میلیون ریال</p>
-          <div class="card-tags">
-            <span class="tag">AI</span>
-            <span class="tag">Data</span>
-            <span class="tag">Student</span>
+            <!-- Location Filter -->
+            <div class="relative">
+              <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+              <select id="location-filter" class="w-full pr-10 pl-10 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="">همه شهرها</option>
+                <option value="tehran">تهران</option>
+                <option value="shiraz">شیراز</option>
+                <option value="isfahan">اصفهان</option>
+                <option value="mashhad">مشهد</option>
+                <option value="online">آنلاین</option>
+              </select>
+            </div>
+
+            <!-- Topic Filter -->
+            <div class="relative">
+              <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
+              </svg>
+              <select id="topic-filter" class="w-full pr-10 pl-10 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="">همه موضوعات</option>
+                <option value="ai">هوش مصنوعی</option>
+                <option value="fintech">فین‌تک</option>
+                <option value="web3">وب۳</option>
+                <option value="security">امنیت سایبری</option>
+                <option value="health">سلامت دیجیتال</option>
+                <option value="iot">اینترنت اشیاء</option>
+              </select>
+            </div>
           </div>
-        </a>
 
-        <a href="./event.html" class="card">
-          <div class="card-badge">حضوری</div>
-          <h3 class="card-title">هکاتون فین‌تک شیراز</h3>
-          <p class="card-sub">۲۸ مهر ۱۴۰۴ • ۷۲ ساعت • جایزه ۳۰۰ میلیون ریال</p>
-          <div class="card-tags">
-            <span class="tag">FinTech</span>
-            <span class="tag">Payments</span>
+          <!-- Quick Filter Tags -->
+          <div class="flex flex-wrap gap-2">
+            <button class="filter-tag active" data-filter="all">همه</button>
+            <button class="filter-tag" data-filter="online">آنلاین</button>
+            <button class="filter-tag" data-filter="in-person">حضوری</button>
+            <button class="filter-tag" data-filter="student">دانشجویی</button>
+            <button class="filter-tag" data-filter="ai">هوش مصنوعی</button>
+            <button class="filter-tag" data-filter="fintech">فین‌تک</button>
+            <button class="filter-tag" data-filter="web3">وب۳</button>
+            <button class="filter-tag" data-filter="security">امنیت</button>
+            <button class="filter-tag" data-filter="health">سلامت</button>
+            <button class="filter-tag" data-filter="iot">اینترنت اشیاء</button>
           </div>
-        </a>
+        </div>
+      </section>
 
-        <a href="./event.html" class="card">
-          <div class="card-badge">حضوری</div>
-          <h3 class="card-title">هکاتون وب۳ اصفهان</h3>
-          <p class="card-sub">۵ آبان ۱۴۰۴ • ۳۶ ساعت • جایزه ۲۰۰ میلیون ریال</p>
-          <div class="card-tags">
-            <span class="tag">Web3</span>
-            <span class="tag">Solidity</span>
+      <!-- Hackathons Grid -->
+      <section class="container">
+        <div class="flex items-center justify-between mb-8">
+          <div class="flex items-center gap-4">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100">هکاتون‌های فعال</h2>
+            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 rounded-full text-sm font-medium">۱۴ رویداد</span>
           </div>
-        </a>
-
-        <a href="./event.html" class="card">
-          <div class="card-badge">آنلاین</div>
-          <h3 class="card-title">هکاتون امنیت سایبری مشهد</h3>
-          <p class="card-sub">۱۲ آبان ۱۴۰۴ • ۲۴ ساعت • جایزه ۴۰۰ میلیون ریال</p>
-          <div class="card-tags">
-            <span class="tag">Security</span>
-            <span class="tag">Penetration</span>
-            <span class="tag">CTF</span>
+          
+          <div class="flex items-center gap-2">
+            <button class="view-toggle active" data-view="grid" title="نمایش شبکه‌ای">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z"/>
+              </svg>
+            </button>
+            <button class="view-toggle" data-view="list" title="نمایش لیستی">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
+              </svg>
+            </button>
           </div>
-        </a>
+        </div>
 
-        <a href="./event.html" class="card">
-          <div class="card-badge">حضوری</div>
-          <h3 class="card-title">هکاتون سلامت دیجیتال تبریز</h3>
-          <p class="card-sub">۱۹ آبان ۱۴۰۴ • ۴۸ ساعت • جایزه ۳۵۰ میلیون ریال</p>
-          <div class="card-tags">
-            <span class="tag">HealthTech</span>
-            <span class="tag">IoT</span>
-            <span class="tag">Medical</span>
+        <div id="hackathons-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Hackathon Card 1 -->
+          <div class="hackathon-card group" data-category="ai online student">
+            <div class="relative overflow-hidden rounded-2xl">
+              <div class="absolute top-4 right-4 z-10">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400">
+                  <span class="w-2 h-2 bg-emerald-500 rounded-full ml-2"></span>
+                  آنلاین
+                </span>
+              </div>
+              <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                <svg class="w-16 h-16 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+            </div>
+            
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-xs text-slate-500 dark:text-slate-400">۲۱ مهر ۱۴۰۴</span>
+                <span class="text-xs text-slate-500 dark:text-slate-400">•</span>
+                <span class="text-xs text-slate-500 dark:text-slate-400">۴۸ ساعت</span>
+                <span class="text-xs text-slate-500 dark:text-slate-400">•</span>
+                <span class="text-xs text-slate-500 dark:text-slate-400">تهران</span>
+              </div>
+              
+              <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                هکاتون هوش مصنوعی تهران
+              </h3>
+              
+              <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed">
+                با استفاده از تکنولوژی‌های هوش مصنوعی، راه‌حل‌های نوآورانه برای چالش‌های واقعی ارائه دهید.
+              </p>
+              
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">AI</span>
+                <span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">Data</span>
+                <span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400">ML</span>
+              </div>
+              
+              <div class="flex items-center justify-between">
+                <div class="text-sm text-slate-600 dark:text-slate-300">
+                  <span class="font-semibold text-emerald-600 dark:text-emerald-400">۵۰۰ میلیون ریال</span>
+                  <span class="text-slate-500 dark:text-slate-400">جایزه</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-xs text-slate-500 dark:text-slate-400">۱۲۴ شرکت‌کننده</span>
+                  <a href="./event.html" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium text-sm group/link">
+                    مشاهده
+                    <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
-        </a>
 
-        <a href="./event.html" class="card">
-          <div class="card-badge">آنلاین</div>
-          <h3 class="card-title">هکاتون آموزش آنلاین کرج</h3>
-          <p class="card-sub">۲۶ آبان ۱۴۰۴ • ۳۶ ساعت • جایزه ۲۵۰ میلیون ریال</p>
-          <div class="card-tags">
-            <span class="tag">EdTech</span>
-            <span class="tag">LMS</span>
-            <span class="tag">Student</span>
+          <!-- Hackathon Card 2 -->
+          <div class="hackathon-card group" data-category="fintech in-person">
+            <div class="relative overflow-hidden rounded-2xl">
+              <div class="absolute top-4 right-4 z-10">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400">
+                  <span class="w-2 h-2 bg-orange-500 rounded-full ml-2"></span>
+                  حضوری
+                </span>
+              </div>
+              <div class="h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                <svg class="w-16 h-16 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                </svg>
+              </div>
+            </div>
+            
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-xs text-slate-500 dark:text-slate-400">۲۸ مهر ۱۴۰۴</span>
+                <span class="text-xs text-slate-500 dark:text-slate-400">•</span>
+                <span class="text-xs text-slate-500 dark:text-slate-400">۷۲ ساعت</span>
+                <span class="text-xs text-slate-500 dark:text-slate-400">•</span>
+                <span class="text-xs text-slate-500 dark:text-slate-400">شیراز</span>
+              </div>
+              
+              <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                هکاتون فین‌تک شیراز
+              </h3>
+              
+              <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed">
+                آینده پرداخت‌های دیجیتال را شکل دهید و راه‌حل‌های نوآورانه فین‌تک ارائه کنید.
+              </p>
+              
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400">FinTech</span>
+                <span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">Payments</span>
+                <span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400">Blockchain</span>
+              </div>
+              
+              <div class="flex items-center justify-between">
+                <div class="text-sm text-slate-600 dark:text-slate-300">
+                  <span class="font-semibold text-emerald-600 dark:text-emerald-400">۳۰۰ میلیون ریال</span>
+                  <span class="text-slate-500 dark:text-slate-400">جایزه</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-xs text-slate-500 dark:text-slate-400">۸۹ شرکت‌کننده</span>
+                  <a href="./event.html" class="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium text-sm group/link">
+                    مشاهده
+                    <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
-        </a>
 
-        <a href="./event.html" class="card">
-          <div class="card-badge">حضوری</div>
-          <h3 class="card-title">هکاتون گردشگری هوشمند یزد</h3>
-          <p class="card-sub">۳ آذر ۱۴۰۴ • ۴۸ ساعت • جایزه ۳۰۰ میلیون ریال</p>
-          <div class="card-tags">
-            <span class="tag">Tourism</span>
-            <span class="tag">AR/VR</span>
-            <span class="tag">Mobile</span>
+          <!-- Hackathon Card 3 -->
+          <div class="hackathon-card group" data-category="web3 in-person">
+            <div class="relative overflow-hidden rounded-2xl">
+              <div class="absolute top-4 right-4 z-10">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400">
+                  <span class="w-2 h-2 bg-orange-500 rounded-full ml-2"></span>
+                  حضوری
+                </span>
+              </div>
+              <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
+                <svg class="w-16 h-16 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+            </div>
+            
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-xs text-slate-500 dark:text-slate-400">۵ آبان ۱۴۰۴</span>
+                <span class="text-xs text-slate-500 dark:text-slate-400">•</span>
+                <span class="text-xs text-slate-500 dark:text-slate-400">۳۶ ساعت</span>
+                <span class="text-xs text-slate-500 dark:text-slate-400">•</span>
+                <span class="text-xs text-slate-500 dark:text-slate-400">اصفهان</span>
+              </div>
+              
+              <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                هکاتون وب۳ اصفهان
+              </h3>
+              
+              <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed">
+                آینده اینترنت را با تکنولوژی‌های وب۳ و بلاکچین بسازید و پروژه‌های غیرمتمرکز ایجاد کنید.
+              </p>
+              
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400">Web3</span>
+                <span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">Solidity</span>
+                <span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">DeFi</span>
+              </div>
+              
+              <div class="flex items-center justify-between">
+                <div class="text-sm text-slate-600 dark:text-slate-300">
+                  <span class="font-semibold text-emerald-600 dark:text-emerald-400">۲۰۰ میلیون ریال</span>
+                  <span class="text-slate-500 dark:text-slate-400">جایزه</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-xs text-slate-500 dark:text-slate-400">۶۷ شرکت‌کننده</span>
+                  <a href="./event.html" class="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium text-sm group/link">
+                    مشاهده
+                    <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
-        </a>
 
-        <a href="./event.html" class="card">
-          <div class="card-badge">آنلاین</div>
-          <h3 class="card-title">هکاتون انرژی سبز قزوین</h3>
-          <p class="card-sub">۱۰ آذر ۱۴۰۴ • ۷۲ ساعت • جایزه ۵۰۰ میلیون ریال</p>
-          <div class="card-tags">
-            <span class="tag">GreenTech</span>
-            <span class="tag">IoT</span>
-            <span class="tag">Sustainability</span>
+          <!-- More cards would continue here... -->
+        </div>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-12">
+          <button class="load-more-btn">
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+            نمایش هکاتون‌های بیشتر
+          </button>
+        </div>
+      </section>
+
+      <!-- Host Hackathon Section -->
+      <section id="submit" class="container mt-20">
+        <div class="bg-gradient-to-br from-blue-50 to-emerald-50 dark:from-slate-900 dark:to-slate-800 rounded-3xl p-8 border border-slate-200/60 dark:border-slate-700/60">
+          <div class="text-center mb-8">
+            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+              </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-2">میزبانی هکاتون</h2>
+            <p class="text-slate-600 dark:text-slate-300">رویداد خود را در IranHack میزبانی کنید و با هزاران برنامه‌نویس در ارتباط باشید</p>
           </div>
-        </a>
-
-        <a href="./event.html" class="card">
-          <div class="card-badge">حضوری</div>
-          <h3 class="card-title">هکاتون بازی‌سازی اهواز</h3>
-          <p class="card-sub">۱۷ آذر ۱۴۰۴ • ۴۸ ساعت • جایزه ۴۰۰ میلیون ریال</p>
-          <div class="card-tags">
-            <span class="tag">GameDev</span>
-            <span class="tag">Unity</span>
-            <span class="tag">Student</span>
-          </div>
-        </a>
-
-        <a href="./event.html" class="card">
-          <div class="card-badge">آنلاین</div>
-          <h3 class="card-title">هکاتون اینترنت اشیاء ارومیه</h3>
-          <p class="card-sub">۲۴ آذر ۱۴۰۴ • ۳۶ ساعت • جایزه ۲۵۰ میلیون ریال</p>
-          <div class="card-tags">
-            <span class="tag">IoT</span>
-            <span class="tag">Hardware</span>
-            <span class="tag">Embedded</span>
-          </div>
-        </a>
-
-        <a href="./event.html" class="card">
-          <div class="card-badge">حضوری</div>
-          <h3 class="card-title">هکاتون استارتاپ‌های دانشجویی تهران</h3>
-          <p class="card-sub">۱ دی ۱۴۰۴ • ۷۲ ساعت • جایزه ۶۰۰ میلیون ریال</p>
-          <div class="card-tags">
-            <span class="tag">Startup</span>
-            <span class="tag">Student</span>
-            <span class="tag">Innovation</span>
-          </div>
-        </a>
-
-        <a href="./event.html" class="card">
-          <div class="card-badge">آنلاین</div>
-          <h3 class="card-title">هکاتون هوش مصنوعی و موسیقی شیراز</h3>
-          <p class="card-sub">۸ دی ۱۴۰۴ • ۲۴ ساعت • جایزه ۲۰۰ میلیون ریال</p>
-          <div class="card-tags">
-            <span class="tag">AI</span>
-            <span class="tag">Music</span>
-            <span class="tag">Creative</span>
-          </div>
-        </a>
-
-        <a href="./event.html" class="card">
-          <div class="card-badge">حضوری</div>
-          <h3 class="card-title">هکاتون شهر هوشمند اصفهان</h3>
-          <p class="card-sub">۱۵ دی ۱۴۰۴ • ۴۸ ساعت • جایزه ۴۵۰ میلیون ریال</p>
-          <div class="card-tags">
-            <span class="tag">SmartCity</span>
-            <span class="tag">IoT</span>
-            <span class="tag">Infrastructure</span>
-          </div>
-        </a>
-
-        <a href="./event.html" class="card">
-          <div class="card-badge">آنلاین</div>
-          <h3 class="card-title">هکاتون بلاکچین و NFT مشهد</h3>
-          <p class="card-sub">۲۲ دی ۱۴۰۴ • ۳۶ ساعت • جایزه ۳۵۰ میلیون ریال</p>
-          <div class="card-tags">
-            <span class="tag">Blockchain</span>
-            <span class="tag">NFT</span>
-            <span class="tag">Web3</span>
-          </div>
-        </a>
-      </div>
-
-      <div id="submit" class="mt-12 rounded-xl border border-slate-200/70 dark:border-slate-800/70 p-6 bg-slate-50/60 dark:bg-slate-900/40">
-        <h2 class="text-lg font-bold">میزبانی هکاتون</h2>
-        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">برای ثبت رویداد خود، اطلاعات تماس‌تان را وارد کنید. (نمونه‌ی نمایشی)</p>
-        <form class="mt-4 grid gap-3 sm:grid-cols-3">
-          <input type="text" placeholder="نام برگزارکننده" class="input" />
-          <input type="email" placeholder="ایمیل" class="input" />
-          <button type="button" class="btn-primary">ارسال درخواست</button>
-        </form>
-      </div>
+          
+          <form class="max-w-2xl mx-auto grid gap-4 sm:grid-cols-2">
+            <input type="text" placeholder="نام سازمان/شرکت" class="host-input" />
+            <input type="email" placeholder="ایمیل تماس" class="host-input" />
+            <input type="text" placeholder="نام هکاتون" class="host-input" />
+            <input type="text" placeholder="شهر برگزاری" class="host-input" />
+            <textarea placeholder="توضیحات هکاتون" class="host-input sm:col-span-2" rows="3"></textarea>
+            <button type="button" class="host-submit-btn sm:col-span-2">
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+              </svg>
+              ارسال درخواست میزبانی
+            </button>
+          </form>
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
@@ -366,6 +484,188 @@
     <script>
       // Set current year in footer
       document.getElementById('year').textContent = new Date().getFullYear();
+      
+                           // Hackathons page functionality
+        document.addEventListener('DOMContentLoaded', function() {
+          // Filter functionality
+          const filterTags = document.querySelectorAll('.filter-tag');
+          const hackathonCards = document.querySelectorAll('.hackathon-card');
+          const searchInput = document.getElementById('search');
+          const locationFilter = document.getElementById('location-filter');
+          const topicFilter = document.getElementById('topic-filter');
+          
+          // Combined filter function
+          function applyFilters() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedLocation = locationFilter.value;
+            const selectedTopic = topicFilter.value;
+            
+            hackathonCards.forEach(card => {
+              const categories = card.getAttribute('data-category');
+              const title = card.querySelector('h3').textContent.toLowerCase();
+              const description = card.querySelector('p').textContent.toLowerCase();
+              const tags = Array.from(card.querySelectorAll('span')).map(tag => tag.textContent.toLowerCase()).join(' ');
+              const location = card.querySelector('.text-slate-500').textContent.toLowerCase();
+              
+              let showCard = true;
+              
+              // Search filter
+              if (searchTerm && !(title.includes(searchTerm) || description.includes(searchTerm) || tags.includes(searchTerm))) {
+                showCard = false;
+              }
+              
+              // Location filter
+              if (selectedLocation && !location.includes(selectedLocation)) {
+                showCard = false;
+              }
+              
+              // Topic filter
+              if (selectedTopic && !categories.includes(selectedTopic)) {
+                showCard = false;
+              }
+              
+              if (showCard) {
+                card.style.display = 'block';
+                card.style.animation = 'fadeIn 0.3s ease-in-out';
+              } else {
+                card.style.display = 'none';
+              }
+            });
+            
+            updateHackathonCount();
+          }
+          
+          // Filter by tags (quick filters)
+          filterTags.forEach(tag => {
+            tag.addEventListener('click', function() {
+              const filter = this.getAttribute('data-filter');
+              
+              // Update active state
+              filterTags.forEach(t => t.classList.remove('active'));
+              this.classList.add('active');
+              
+              // Reset other filters when using quick filter
+              if (filter !== 'all') {
+                locationFilter.value = '';
+                topicFilter.value = '';
+                searchInput.value = '';
+              }
+              
+              // Filter cards
+              hackathonCards.forEach(card => {
+                const categories = card.getAttribute('data-category');
+                if (filter === 'all' || categories.includes(filter)) {
+                  card.style.display = 'block';
+                  card.style.animation = 'fadeIn 0.3s ease-in-out';
+                } else {
+                  card.style.display = 'none';
+                }
+              });
+              
+              updateHackathonCount();
+            });
+          });
+          
+          // Event listeners for filter elements
+          locationFilter.addEventListener('change', applyFilters);
+          topicFilter.addEventListener('change', applyFilters);
+          
+          // Search functionality
+          searchInput.addEventListener('input', applyFilters);
+        
+        // View toggle functionality
+        const viewToggles = document.querySelectorAll('.view-toggle');
+        const hackathonsGrid = document.getElementById('hackathons-grid');
+        
+        viewToggles.forEach(toggle => {
+          toggle.addEventListener('click', function() {
+            const view = this.getAttribute('data-view');
+            
+            // Update active state
+            viewToggles.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Change layout
+            if (view === 'list') {
+              hackathonsGrid.classList.remove('grid', 'grid-cols-1', 'md:grid-cols-2', 'lg:grid-cols-3', 'gap-6');
+              hackathonsGrid.classList.add('space-y-4');
+            } else {
+              hackathonsGrid.classList.remove('space-y-4');
+              hackathonsGrid.classList.add('grid', 'grid-cols-1', 'md:grid-cols-2', 'lg:grid-cols-3', 'gap-6');
+            }
+          });
+        });
+        
+        // Load more functionality
+        const loadMoreBtn = document.querySelector('.load-more-btn');
+        if (loadMoreBtn) {
+          loadMoreBtn.addEventListener('click', function() {
+            // Simulate loading more hackathons
+            this.innerHTML = `
+              <svg class="w-5 h-5 ml-2 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+              </svg>
+              در حال بارگذاری...
+            `;
+            
+            setTimeout(() => {
+              this.innerHTML = `
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+                نمایش هکاتون‌های بیشتر
+              `;
+            }, 2000);
+          });
+        }
+        
+        // Host form functionality
+        const hostForm = document.querySelector('#submit form');
+        const hostSubmitBtn = document.querySelector('.host-submit-btn');
+        
+        if (hostSubmitBtn) {
+          hostSubmitBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            this.innerHTML = `
+              <svg class="w-5 h-5 ml-2 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+              </svg>
+              در حال ارسال...
+            `;
+            
+            setTimeout(() => {
+              this.innerHTML = `
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                درخواست ارسال شد
+              `;
+              this.style.background = 'linear-gradient(45deg, #10b981, #059669)';
+            }, 2000);
+          });
+        }
+        
+        // Update hackathon count
+        function updateHackathonCount() {
+          const visibleCards = Array.from(hackathonCards).filter(card => card.style.display !== 'none');
+          const countElement = document.querySelector('.text-blue-800');
+          if (countElement) {
+            countElement.textContent = `${visibleCards.length} رویداد`;
+          }
+        }
+        
+        // Add fade-in animation
+        const style = document.createElement('style');
+        style.textContent = `
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+        `;
+        document.head.appendChild(style);
+      });
     </script>
   </body>
   </html>
