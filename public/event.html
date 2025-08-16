@@ -86,20 +86,26 @@
                 <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400">Python</span>
               </div>
               
-              <div class="flex flex-col sm:flex-row gap-4">
-                <button id="register-btn" class="btn-primary text-lg px-8 py-4">
-                  <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                  </svg>
-                  ثبت‌نام در هکاتون
-                </button>
-                <button class="btn-ghost text-lg px-8 py-4">
-                  <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                  </svg>
-                  افزودن به علاقه‌مندی‌ها
-                </button>
-              </div>
+                             <div class="flex flex-col sm:flex-row gap-4">
+                 <button id="register-btn" class="btn-primary text-lg px-8 py-4">
+                   <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                   </svg>
+                   ثبت‌نام در هکاتون
+                 </button>
+                 <button class="btn-ghost text-lg px-8 py-4">
+                   <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                   </svg>
+                   افزودن به علاقه‌مندی‌ها
+                 </button>
+                 <a href="#leaderboard" class="btn-secondary text-lg px-8 py-4 flex items-center justify-center">
+                   <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                   </svg>
+                   مشاهده جدول امتیازات
+                 </a>
+               </div>
             </div>
             
             <!-- Stats Card -->
@@ -246,6 +252,221 @@
                     <h3 class="font-bold text-slate-900 dark:text-slate-100">روز سوم - ارائه و داوری</h3>
                     <p class="text-slate-600 dark:text-slate-300">۲۳ مهر ۱۴۰۴ - ساعت ۶ عصر</p>
                     <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">ارائه نهایی پروژه‌ها و اعلام نتایج</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+                         <!-- Leaderboard Section -->
+             <div id="leaderboard" class=" dark:bg-slate-900 rounded-2xl border border-slate-200/60 dark:border-slate-800/60 p-8 shadow-lg">
+              <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100">جدول امتیازات</h2>
+                <div class="flex items-center gap-2">
+                  <span class="text-sm text-slate-500 dark:text-slate-400">آخرین بروزرسانی:</span>
+                  <span class="text-sm font-medium text-slate-900 dark:text-slate-100" id="last-update">۲ دقیقه پیش</span>
+                </div>
+              </div>
+              
+              <!-- Leaderboard Table -->
+              <div class="overflow-x-auto">
+                <table class="w-full">
+                  <thead>
+                    <tr class="border-b border-slate-200 dark:border-slate-700">
+                      <th class="text-right py-3 px-4 font-semibold text-slate-900 dark:text-slate-100">رتبه</th>
+                      <th class="text-right py-3 px-4 font-semibold text-slate-900 dark:text-slate-100">تیم</th>
+                      <th class="text-right py-3 px-4 font-semibold text-slate-900 dark:text-slate-100">امتیاز</th>
+                      <th class="text-right py-3 px-4 font-semibold text-slate-900 dark:text-slate-100">پروژه</th>
+                      <th class="text-right py-3 px-4 font-semibold text-slate-900 dark:text-slate-100">وضعیت</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-200 dark:divide-slate-700">
+                    <!-- 1st Place -->
+                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                      <td class="py-4 px-4">
+                        <div class="flex items-center justify-center w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full">
+                          <span class="text-white font-bold text-sm">۱</span>
+                        </div>
+                      </td>
+                      <td class="py-4 px-4">
+                        <div class="flex items-center gap-3">
+                          <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">AI</span>
+                          </div>
+                          <div>
+                            <p class="font-semibold text-slate-900 dark:text-slate-100">تیم هوشمند</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">دانشگاه تهران</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="py-4 px-4">
+                        <span class="font-bold text-2xl text-yellow-600 dark:text-yellow-400">۹۵</span>
+                        <span class="text-sm text-slate-500 dark:text-slate-400">امتیاز</span>
+                      </td>
+                      <td class="py-4 px-4">
+                        <p class="font-medium text-slate-900 dark:text-slate-100">دستیار هوشمند سلامت</p>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">AI Health Assistant</p>
+                      </td>
+                      <td class="py-4 px-4">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                          <span class="w-1.5 h-1.5 bg-green-500 rounded-full ml-1"></span>
+                          فعال
+                        </span>
+                      </td>
+                    </tr>
+                    
+                    <!-- 2nd Place -->
+                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                      <td class="py-4 px-4">
+                        <div class="flex items-center justify-center w-8 h-8 bg-gradient-to-br from-gray-400 to-slate-500 rounded-full">
+                          <span class="text-white font-bold text-sm">۲</span>
+                        </div>
+                      </td>
+                      <td class="py-4 px-4">
+                        <div class="flex items-center gap-3">
+                          <div class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">ML</span>
+                          </div>
+                          <div>
+                            <p class="font-semibold text-slate-900 dark:text-slate-100">تیم نوآوران</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">دانشگاه شریف</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="py-4 px-4">
+                        <span class="font-bold text-2xl text-gray-600 dark:text-gray-400">۸۷</span>
+                        <span class="text-sm text-slate-500 dark:text-slate-400">امتیاز</span>
+                      </td>
+                      <td class="py-4 px-4">
+                        <p class="font-medium text-slate-900 dark:text-slate-100">سیستم تشخیص تصویر</p>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">Image Recognition AI</p>
+                      </td>
+                      <td class="py-4 px-4">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                          <span class="w-1.5 h-1.5 bg-green-500 rounded-full ml-1"></span>
+                          فعال
+                        </span>
+                      </td>
+                    </tr>
+                    
+                    <!-- 3rd Place -->
+                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                      <td class="py-4 px-4">
+                        <div class="flex items-center justify-center w-8 h-8 bg-gradient-to-br from-orange-400 to-red-500 rounded-full">
+                          <span class="text-white font-bold text-sm">۳</span>
+                        </div>
+                      </td>
+                      <td class="py-4 px-4">
+                        <div class="flex items-center gap-3">
+                          <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">DS</span>
+                          </div>
+                          <div>
+                            <p class="font-semibold text-slate-900 dark:text-slate-100">تیم داده‌کاوان</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">دانشگاه امیرکبیر</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="py-4 px-4">
+                        <span class="font-bold text-2xl text-orange-600 dark:text-orange-400">۷۹</span>
+                        <span class="text-sm text-slate-500 dark:text-slate-400">امتیاز</span>
+                      </td>
+                      <td class="py-4 px-4">
+                        <p class="font-medium text-slate-900 dark:text-slate-100">پیش‌بینی بازار</p>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">Market Prediction ML</p>
+                      </td>
+                      <td class="py-4 px-4">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400">
+                          <span class="w-1.5 h-1.5 bg-yellow-500 rounded-full ml-1"></span>
+                          در حال توسعه
+                        </span>
+                      </td>
+                    </tr>
+                    
+                    <!-- 4th Place -->
+                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                      <td class="py-4 px-4">
+                        <div class="flex items-center justify-center w-8 h-8 bg-slate-200 dark:bg-slate-700 rounded-full">
+                          <span class="text-slate-600 dark:text-slate-300 font-bold text-sm">۴</span>
+                        </div>
+                      </td>
+                      <td class="py-4 px-4">
+                        <div class="flex items-center gap-3">
+                          <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">NL</span>
+                          </div>
+                          <div>
+                            <p class="font-semibold text-slate-900 dark:text-slate-100">تیم پردازش زبان</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">دانشگاه علم و صنعت</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="py-4 px-4">
+                        <span class="font-bold text-2xl text-slate-600 dark:text-slate-400">۷۲</span>
+                        <span class="text-sm text-slate-500 dark:text-slate-400">امتیاز</span>
+                      </td>
+                      <td class="py-4 px-4">
+                        <p class="font-medium text-slate-900 dark:text-slate-100">ترجمه هوشمند</p>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">Smart Translator</p>
+                      </td>
+                      <td class="py-4 px-4">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                          <span class="w-1.5 h-1.5 bg-green-500 rounded-full ml-1"></span>
+                          فعال
+                        </span>
+                      </td>
+                    </tr>
+                    
+                    <!-- 5th Place -->
+                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                      <td class="py-4 px-4">
+                        <div class="flex items-center justify-center w-8 h-8 bg-slate-200 dark:bg-slate-700 rounded-full">
+                          <span class="text-slate-600 dark:text-slate-300 font-bold text-sm">۵</span>
+                        </div>
+                      </td>
+                      <td class="py-4 px-4">
+                        <div class="flex items-center gap-3">
+                          <div class="w-10 h-10 bg-gradient-to-br from-rose-500 to-pink-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">CV</span>
+                          </div>
+                          <div>
+                            <p class="font-semibold text-slate-900 dark:text-slate-100">تیم بینایی ماشین</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">دانشگاه خواجه نصیر</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="py-4 px-4">
+                        <span class="font-bold text-2xl text-slate-600 dark:text-slate-400">۶۸</span>
+                        <span class="text-sm text-slate-500 dark:text-slate-400">امتیاز</span>
+                      </td>
+                      <td class="py-4 px-4">
+                        <p class="font-medium text-slate-900 dark:text-slate-100">تشخیص چهره</p>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">Face Recognition</p>
+                      </td>
+                      <td class="py-4 px-4">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400">
+                          <span class="w-1.5 h-1.5 bg-yellow-500 rounded-full ml-1"></span>
+                          در حال توسعه
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+              <!-- Leaderboard Stats -->
+              <div class="mt-6 pt-6 border-t border-slate-200 dark:border-slate-700">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div class="text-center p-4 bg-slate-50 dark:bg-slate-800/50 rounded-lg">
+                    <p class="text-2xl font-bold text-slate-900 dark:text-slate-100">۴۲</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">تیم شرکت‌کننده</p>
+                  </div>
+                  <div class="text-center p-4 bg-slate-50 dark:bg-slate-800/50 rounded-lg">
+                    <p class="text-2xl font-bold text-slate-900 dark:text-slate-100">۱۲۴</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">شرکت‌کننده</p>
+                  </div>
+                  <div class="text-center p-4 bg-slate-50 dark:bg-slate-800/50 rounded-lg">
+                    <p class="text-2xl font-bold text-slate-900 dark:text-slate-100">۲۴</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">ساعت باقی‌مانده</p>
                   </div>
                 </div>
               </div>
@@ -570,6 +791,56 @@
             this.style.boxShadow = '';
           });
         });
+
+        // Leaderboard functionality
+        function updateLeaderboardTime() {
+          const lastUpdateElement = document.getElementById('last-update');
+          if (lastUpdateElement) {
+            const now = new Date();
+            const minutes = Math.floor(Math.random() * 5) + 1; // Random time between 1-5 minutes
+            lastUpdateElement.textContent = `${minutes} دقیقه پیش`;
+          }
+        }
+
+        // Update leaderboard time every 30 seconds
+        setInterval(updateLeaderboardTime, 30000);
+
+        // Add click functionality to leaderboard rows
+        const leaderboardRows = document.querySelectorAll('tbody tr');
+        leaderboardRows.forEach(row => {
+          row.addEventListener('click', function() {
+            // Remove active class from all rows
+            leaderboardRows.forEach(r => r.classList.remove('ring-2', 'ring-brand-500'));
+            // Add active class to clicked row
+            this.classList.add('ring-2', 'ring-brand-500');
+            
+            // Get team name from the row
+            const teamName = this.querySelector('td:nth-child(2) p:first-child').textContent;
+            showNotification(`مشاهده جزئیات تیم ${teamName}`, 'info');
+          });
+        });
+
+        // Add animation to score numbers
+        function animateScoreNumbers() {
+          const scoreElements = document.querySelectorAll('tbody td:nth-child(3) span:first-child');
+          scoreElements.forEach(element => {
+            const finalScore = parseInt(element.textContent);
+            let currentScore = 0;
+            const increment = finalScore / 20; // Animate over 20 steps
+            
+            const timer = setInterval(() => {
+              currentScore += increment;
+              if (currentScore >= finalScore) {
+                currentScore = finalScore;
+                clearInterval(timer);
+              }
+              element.textContent = Math.floor(currentScore);
+            }, 50);
+          });
+        }
+
+        // Animate scores when page loads
+        setTimeout(animateScoreNumbers, 1000);
       });
     </script>
   </body>
