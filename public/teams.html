@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="color-scheme" content="light dark" />
+    <title>مدیریت تیم‌ها — IranHack</title>
+    <meta name="description" content="مدیریت تیم‌های هکاتون هوش مصنوعی تهران." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            container: { center: true, padding: '1rem' },
+            fontFamily: { sans: ['Vazirmatn', 'ui-sans-serif', 'system-ui', 'sans-serif'] },
+            colors: {
+              brand: { 500: '#06b6d4' }
+            },
+          },
+        },
+        darkMode: 'class',
+      };
+    </script>
+    <link href="./assets/styles.css" rel="stylesheet" />
+  </head>
+  <body class="text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans">
+    <header class="sticky top-0 z-20 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-slate-950/60 border-b border-slate-200/60 dark:border-slate-800/60">
+      <nav class="container flex items-center gap-4 py-3">
+        <a href="./index.html" class="flex items-center gap-2 text-lg font-extrabold">
+          <span class="inline-block size-6 rounded bg-gradient-to-tr from-brand-500 to-emerald-500"></span>
+          IranHack
+        </a>
+        <div class="ms-auto flex items-center gap-2 desktop-nav">
+          <a href="./hackathon-dashboard.html" class="nav-link">داشبورد هکاتون</a>
+          <a href="./hackathons.html" class="nav-link">هکاتون‌ها</a>
+          <a href="./profile.html" class="nav-link">پروفایل</a>
+          <button id="theme-toggle" class="icon-btn" aria-label="تغییر تم" title="تغییر تم">
+            <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 hidden dark:block"><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/><path d="M12 2.25a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0V3A.75.75 0 0 1 12 2.25Zm0 16.5a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5a.75.75 0 0 1 .75-.75ZM4.72 4.72a.75.75 0 0 1 1.06 0l1.06 1.06a.75.75 0 1 1-1.06 1.06L4.72 5.78a.75.75 0 0 1 0-1.06Zm12.44 12.44a.75.75 0 0 1 1.06 0l1.06 1.06a.75.75 0 1 1-1.06 1.06l-1.06-1.06a.75.75 0 0 1 0-1.06ZM2.25 12a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1-.75-.75Zm16.5 0a.75.75 0 0 1 .75-.75h1.5a.75.75 0 1 1 0 1.5h-1.5a.75.75 0 0 1-.75-.75ZM4.72 19.28a.75.75 0 0 1 0-1.06l1.06-1.06a.75.75 0 1 1 1.06 1.06L5.78 19.28a.75.75 0 0 1-1.06 0Zm12.44-12.44a.75.75 0 0 1 0-1.06l1.06-1.06a.75.75 0 1 1 1.06 1.06L17.16 6.84a.75.75 0 0 1-1.06 0Z"/></svg>
+            <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 dark:hidden"><path d="M21.752 15.002a9 9 0 1 1-12.75-12.75.75.75 0 0 1 .977.977 7.5 7.5 0 0 0 9.796 9.796.75.75 0 0 1 .977.977Z"/></svg>
+          </button>
+        </div>
+        <button id="hamburger-btn" class="hamburger-btn" aria-label="منو" title="منو">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="min-h-screen bg-slate-50 dark:bg-slate-900">
+      <!-- Page Header -->
+      <section class="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700">
+        <div class="container py-8">
+          <div class="flex items-center justify-between">
+            <div>
+              <h1 class="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-2">مدیریت تیم‌ها</h1>
+              <p class="text-slate-600 dark:text-slate-300">هکاتون هوش مصنوعی تهران - مدیریت تیم‌ها و اعضا</p>
+            </div>
+            <div class="flex gap-3">
+              <button id="create-team-btn" class="btn-primary text-lg px-6 py-3">
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+                ایجاد تیم جدید
+              </button>
+              <button id="export-teams-btn" class="btn-ghost text-lg px-6 py-3">
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                خروجی تیم‌ها
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Teams Content -->
+      <section class="container py-8">
+        <!-- Stats Overview -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-lg">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm text-slate-600 dark:text-slate-400">کل تیم‌ها</p>
+                <p class="text-3xl font-bold text-slate-900 dark:text-slate-100">۲۸</p>
+              </div>
+              <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-lg">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm text-slate-600 dark:text-slate-400">تیم‌های کامل</p>
+                <p class="text-3xl font-bold text-slate-900 dark:text-slate-100">۲۲</p>
+              </div>
+              <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-lg">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm text-slate-600 dark:text-slate-400">در حال تشکیل</p>
+                <p class="text-3xl font-bold text-slate-900 dark:text-slate-100">۴</p>
+              </div>
+              <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-lg">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm text-slate-600 dark:text-slate-400">پروژه ارسال شده</p>
+                <p class="text-3xl font-bold text-slate-900 dark:text-slate-100">۱۸</p>
+              </div>
+              <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Teams Grid -->
+        <div class="grid lg:grid-cols-2 gap-8">
+          <!-- Team Cards -->
+          <div class="lg:col-span-2">
+            <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-lg">
+              <div class="flex items-center justify-between mb-6">
+                <h2 class="text-xl font-bold text-slate-900 dark:text-slate-100">همه تیم‌ها</h2>
+                <div class="flex gap-2">
+                  <input type="text" placeholder="جستجو در تیم‌ها..." class="input text-sm w-64">
+                  <select class="input text-sm w-auto">
+                    <option>همه وضعیت‌ها</option>
+                    <option>تیم کامل</option>
+                    <option>در حال تشکیل</option>
+                    <option>پروژه ارسال شده</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Teams Grid -->
+              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Team Card 1 -->
+                <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                  <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">تیم AI Pioneers</h3>
+                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400">
+                      <span class="w-2 h-2 bg-emerald-500 rounded-full ml-1"></span>
+                      کامل
+                    </span>
+                  </div>
+                  
+                  <div class="space-y-3 mb-4">
+                    <div class="flex items-center gap-2">
+                      <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                      </svg>
+                      <span class="text-sm text-slate-600 dark:text-slate-300">۴ عضو</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                      </svg>
+                      <span class="text-sm text-slate-600 dark:text-slate-300">پروژه ارسال شده</span>
+                    </div>
+                  </div>
+
+                  <!-- Team Members -->
+                  <div class="flex -space-x-2 mb-4">
+                    <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ع</div>
+                    <div class="w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">س</div>
+                    <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">م</div>
+                    <div class="w-8 h-8 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ف</div>
+                  </div>
+
+                  <div class="flex gap-2">
+                    <button class="btn-primary text-xs px-3 py-2 flex-1">مشاهده جزئیات</button>
+                    <button class="btn-ghost text-xs px-3 py-2">پیام</button>
+                  </div>
+                </div>
+
+                <!-- Team Card 2 -->
+                <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                  <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">تیم Data Wizards</h3>
+                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">
+                      <span class="w-2 h-2 bg-blue-500 rounded-full ml-1"></span>
+                      در حال کار
+                    </span>
+                  </div>
+                  
+                  <div class="space-y-3 mb-4">
+                    <div class="flex items-center gap-2">
+                      <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                      </svg>
+                      <span class="text-sm text-slate-600 dark:text-slate-300">۳ عضو</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                      </svg>
+                      <span class="text-sm text-slate-600 dark:text-slate-300">در حال توسعه</span>
+                    </div>
+                  </div>
+
+                  <!-- Team Members -->
+                  <div class="flex -space-x-2 mb-4">
+                    <div class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ر</div>
+                    <div class="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ن</div>
+                    <div class="w-8 h-8 bg-gradient-to-br from-red-500 to-pink-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ع</div>
+                  </div>
+
+                  <div class="flex gap-2">
+                    <button class="btn-primary text-xs px-3 py-2 flex-1">مشاهده جزئیات</button>
+                    <button class="btn-ghost text-xs px-3 py-2">پیام</button>
+                  </div>
+                </div>
+
+                <!-- Team Card 3 -->
+                <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                  <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">تیم ML Masters</h3>
+                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400">
+                      <span class="w-2 h-2 bg-yellow-500 rounded-full ml-1"></span>
+                      در حال تشکیل
+                    </span>
+                  </div>
+                  
+                  <div class="space-y-3 mb-4">
+                    <div class="flex items-center gap-2">
+                      <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                      </svg>
+                      <span class="text-sm text-slate-600 dark:text-slate-300">۲ عضو</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                      </svg>
+                      <span class="text-sm text-slate-600 dark:text-slate-300">منتظر عضو</span>
+                    </div>
+                  </div>
+
+                  <!-- Team Members -->
+                  <div class="flex -space-x-2 mb-4">
+                    <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ح</div>
+                    <div class="w-8 h-8 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ز</div>
+                    <div class="w-8 h-8 bg-slate-300 dark:bg-slate-600 rounded-full flex items-center justify-center text-slate-500 dark:text-slate-400 text-xs">+</div>
+                    <div class="w-8 h-8 bg-slate-300 dark:bg-slate-600 rounded-full flex items-center justify-center text-slate-500 dark:text-slate-400 text-xs">+</div>
+                  </div>
+
+                  <div class="flex gap-2">
+                    <button class="btn-primary text-xs px-3 py-2 flex-1">مشاهده جزئیات</button>
+                    <button class="btn-ghost text-xs px-3 py-2">پیام</button>
+                  </div>
+                </div>
+
+                <!-- Team Card 4 -->
+                <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                  <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">تیم IoT Innovators</h3>
+                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400">
+                      <span class="w-2 h-2 bg-emerald-500 rounded-full ml-1"></span>
+                      کامل
+                    </span>
+                  </div>
+                  
+                  <div class="space-y-3 mb-4">
+                    <div class="flex items-center gap-2">
+                      <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                      </svg>
+                      <span class="text-sm text-slate-600 dark:text-slate-300">۵ عضو</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                      </svg>
+                      <span class="text-sm text-slate-600 dark:text-slate-300">پروژه ارسال شده</span>
+                    </div>
+                  </div>
+
+                  <!-- Team Members -->
+                  <div class="flex -space-x-2 mb-4">
+                    <div class="w-8 h-8 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ک</div>
+                    <div class="w-8 h-8 bg-gradient-to-br from-pink-500 to-rose-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">م</div>
+                    <div class="w-8 h-8 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ع</div>
+                    <div class="w-8 h-8 bg-gradient-to-br from-lime-500 to-green-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">س</div>
+                    <div class="w-8 h-8 bg-gradient-to-br from-violet-500 to-purple-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ر</div>
+                  </div>
+
+                  <div class="flex gap-2">
+                    <button class="btn-primary text-xs px-3 py-2 flex-1">مشاهده جزئیات</button>
+                    <button class="btn-ghost text-xs px-3 py-2">پیام</button>
+                  </div>
+                </div>
+
+                <!-- Team Card 5 -->
+                <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                  <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">تیم Blockchain Builders</h3>
+                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">
+                      <span class="w-2 h-2 bg-blue-500 rounded-full ml-1"></span>
+                      در حال کار
+                    </span>
+                  </div>
+                  
+                  <div class="space-y-3 mb-4">
+                    <div class="flex items-center gap-2">
+                      <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                      </svg>
+                      <span class="text-sm text-slate-600 dark:text-slate-300">۳ عضو</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                      </svg>
+                      <span class="text-sm text-slate-600 dark:text-slate-300">در حال توسعه</span>
+                    </div>
+                  </div>
+
+                  <!-- Team Members -->
+                  <div class="flex -space-x-2 mb-4">
+                    <div class="w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ع</div>
+                    <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">م</div>
+                    <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ف</div>
+                  </div>
+
+                  <div class="flex gap-2">
+                    <button class="btn-primary text-xs px-3 py-2 flex-1">مشاهده جزئیات</button>
+                    <button class="btn-ghost text-xs px-3 py-2">پیام</button>
+                  </div>
+                </div>
+
+                <!-- Team Card 6 -->
+                <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                  <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">تیم Security Squad</h3>
+                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400">
+                      <span class="w-2 h-2 bg-yellow-500 rounded-full ml-1"></span>
+                      در حال تشکیل
+                    </span>
+                  </div>
+                  
+                  <div class="space-y-3 mb-4">
+                    <div class="flex items-center gap-2">
+                      <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                      </svg>
+                      <span class="text-sm text-slate-600 dark:text-slate-300">۱ عضو</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                      </svg>
+                      <span class="text-sm text-slate-600 dark:text-slate-300">منتظر عضو</span>
+                    </div>
+                  </div>
+
+                  <!-- Team Members -->
+                  <div class="flex -space-x-2 mb-4">
+                    <div class="w-8 h-8 bg-gradient-to-br from-red-500 to-pink-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ح</div>
+                    <div class="w-8 h-8 bg-slate-300 dark:bg-slate-600 rounded-full flex items-center justify-center text-slate-500 dark:text-slate-400 text-xs">+</div>
+                    <div class="w-8 h-8 bg-slate-300 dark:bg-slate-600 rounded-full flex items-center justify-center text-slate-500 dark:text-slate-400 text-xs">+</div>
+                    <div class="w-8 h-8 bg-slate-300 dark:bg-slate-600 rounded-full flex items-center justify-center text-slate-500 dark:text-slate-400 text-xs">+</div>
+                  </div>
+
+                  <div class="flex gap-2">
+                    <button class="btn-primary text-xs px-3 py-2 flex-1">مشاهده جزئیات</button>
+                    <button class="btn-ghost text-xs px-3 py-2">پیام</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+      <div class="mobile-menu-header">
+        <a href="./index.html" class="flex items-center gap-2 text-lg font-extrabold">
+          <span class="inline-block size-6 rounded bg-gradient-to-tr from-brand-500 to-emerald-500"></span>
+          IranHack
+        </a>
+        <button id="close-menu" class="icon-btn">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <nav class="mobile-menu-nav">
+        <a href="./hackathon-dashboard.html" class="nav-link">داشبورد هکاتون</a>
+        <a href="./hackathons.html" class="nav-link">هکاتون‌ها</a>
+        <a href="./profile.html" class="nav-link">پروفایل</a>
+      </nav>
+    </div>
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+
+    <script src="./assets/app.js"></script>
+    <script src="./assets/teams.js"></script>
+  </body>
+</html>
