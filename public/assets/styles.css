@@ -519,3 +519,308 @@ select:focus, input:focus {
     margin-bottom: 0.5rem;
   }
 }
+
+/* Teams Page Styles */
+.team-card {
+  background: white;
+  border: 1px solid rgba(100, 116, 139, 0.2);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.dark .team-card {
+  background: rgba(15, 23, 42, 0.8);
+  border-color: rgba(30, 41, 59, 0.8);
+}
+
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.dark .team-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.team-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.team-avatar {
+  position: relative;
+}
+
+.team-rank {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: linear-gradient(45deg, #f59e0b, #ef4444);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.team-info {
+  flex: 1;
+}
+
+.team-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+}
+
+.dark .team-name {
+  color: #f1f5f9;
+}
+
+.team-university {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+}
+
+.dark .team-university {
+  color: #94a3b8;
+}
+
+.team-score {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #06b6d4;
+}
+
+.team-project {
+  margin-bottom: 1.5rem;
+}
+
+.project-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.dark .project-title {
+  color: #f1f5f9;
+}
+
+.project-description {
+  font-size: 0.875rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.dark .project-description {
+  color: #94a3b8;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.team-members {
+  margin-bottom: 1.5rem;
+}
+
+.members-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.dark .members-title {
+  color: #f1f5f9;
+}
+
+.members-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.member {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.member-avatar {
+  width: 2rem;
+  height: 2rem;
+  background: linear-gradient(45deg, #06b6d4, #10b981);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.member-info {
+  flex: 1;
+}
+
+.member-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1e293b;
+  margin-bottom: 0.125rem;
+}
+
+.dark .member-name {
+  color: #f1f5f9;
+}
+
+.member-role {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.dark .member-role {
+  color: #94a3b8;
+}
+
+.team-progress {
+  margin-bottom: 1rem;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.progress-header span:first-child {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.dark .progress-header span:first-child {
+  color: #94a3b8;
+}
+
+.progress-header span:last-child {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #06b6d4;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 0.5rem;
+  background: #e2e8f0;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.dark .progress-bar {
+  background: #334155;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(45deg, #06b6d4, #10b981);
+  border-radius: 0.25rem;
+  transition: width 0.3s ease;
+}
+
+.team-status {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.status-badge.active {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+}
+
+.dark .status-badge.active {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+}
+
+.status-badge.developing {
+  background: rgba(245, 158, 11, 0.1);
+  color: #d97706;
+}
+
+.dark .status-badge.developing {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+}
+
+/* Team card animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Responsive improvements for teams page */
+@media (max-width: 768px) {
+  .team-card {
+    padding: 1rem;
+  }
+  
+  .team-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  
+  .team-avatar {
+    align-self: center;
+  }
+  
+  .members-list {
+    gap: 0.5rem;
+  }
+  
+  .member {
+    gap: 0.5rem;
+  }
+  
+  .member-avatar {
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 0.625rem;
+  }
+}

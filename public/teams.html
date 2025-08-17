@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <meta name="color-scheme" content="light dark" />
-    <title>مدیریت تیم‌ها — IranHack</title>
-    <meta name="description" content="مدیریت تیم‌های هکاتون هوش مصنوعی تهران." />
+    <title>تیم‌های شرکت‌کننده — IranHack</title>
+    <meta name="description" content="مشاهده جزئیات تیم‌های شرکت‌کننده در هکاتون هوش مصنوعی تهران." />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,9 +36,9 @@
           IranHack
         </a>
         <div class="ms-auto flex items-center gap-2 desktop-nav">
-          <a href="./hackathon-dashboard.html" class="nav-link">داشبورد هکاتون</a>
           <a href="./hackathons.html" class="nav-link">هکاتون‌ها</a>
-          <a href="./profile.html" class="nav-link">پروفایل</a>
+          <a href="./about.html" class="nav-link">درباره</a>
+          <a href="./login.html" class="nav-link">ورود</a>
           <button id="theme-toggle" class="icon-btn" aria-label="تغییر تم" title="تغییر تم">
             <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 hidden dark:block"><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/><path d="M12 2.25a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0V3A.75.75 0 0 1 12 2.25Zm0 16.5a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5a.75.75 0 0 1 .75-.75ZM4.72 4.72a.75.75 0 0 1 1.06 0l1.06 1.06a.75.75 0 1 1-1.06 1.06L4.72 5.78a.75.75 0 0 1 0-1.06Zm12.44 12.44a.75.75 0 0 1 1.06 0l1.06 1.06a.75.75 0 1 1-1.06 1.06l-1.06-1.06a.75.75 0 0 1 0-1.06ZM2.25 12a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1-.75-.75Zm16.5 0a.75.75 0 0 1 .75-.75h1.5a.75.75 0 1 1 0 1.5h-1.5a.75.75 0 0 1-.75-.75ZM4.72 19.28a.75.75 0 0 1 0-1.06l1.06-1.06a.75.75 0 1 1 1.06 1.06L5.78 19.28a.75.75 0 0 1-1.06 0Zm12.44-12.44a.75.75 0 0 1 0-1.06l1.06-1.06a.75.75 0 1 1 1.06 1.06L17.16 6.84a.75.75 0 0 1-1.06 0Z"/></svg>
             <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 dark:hidden"><path d="M21.752 15.002a9 9 0 1 1-12.75-12.75.75.75 0 0 1 .977.977 7.5 7.5 0 0 0 9.796 9.796.75.75 0 0 1 .977.977Z"/></svg>
@@ -52,375 +52,657 @@
       </nav>
     </header>
 
-    <main class="min-h-screen bg-slate-50 dark:bg-slate-900">
-      <!-- Page Header -->
-      <section class="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700">
-        <div class="container py-8">
-          <div class="flex items-center justify-between">
-            <div>
-              <h1 class="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-2">مدیریت تیم‌ها</h1>
-              <p class="text-slate-600 dark:text-slate-300">هکاتون هوش مصنوعی تهران - مدیریت تیم‌ها و اعضا</p>
-            </div>
-            <div class="flex gap-3">
-              <button id="create-team-btn" class="btn-primary text-lg px-6 py-3">
-                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                </svg>
-                ایجاد تیم جدید
-              </button>
-              <button id="export-teams-btn" class="btn-ghost text-lg px-6 py-3">
-                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                </svg>
-                خروجی تیم‌ها
-              </button>
+    <main>
+      <!-- Hero Section -->
+      <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-emerald-500/10 dark:from-blue-500/20 dark:via-purple-500/20 dark:to-emerald-500/20"></div>
+        <div class="container py-12 relative">
+          <div class="text-center max-w-4xl mx-auto">
+            <h1 class="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-6">
+              تیم‌های شرکت‌کننده
+            </h1>
+            <p class="text-xl text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+              با تیم‌های برتر هکاتون هوش مصنوعی تهران آشنا شوید و از پروژه‌های نوآورانه آنها مطلع شوید
+            </p>
+            
+            <!-- Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+              <div class="text-center p-6 bg-white/60 dark:bg-slate-900/60 rounded-2xl border border-slate-200/60 dark:border-slate-800/60 backdrop-blur-sm">
+                <div class="text-3xl font-bold text-brand-500 mb-2">۴۲</div>
+                <div class="text-slate-600 dark:text-slate-300">تیم شرکت‌کننده</div>
+              </div>
+              <div class="text-center p-6 bg-white/60 dark:bg-slate-900/60 rounded-2xl border border-slate-200/60 dark:border-slate-800/60 backdrop-blur-sm">
+                <div class="text-3xl font-bold text-emerald-500 mb-2">۱۲۴</div>
+                <div class="text-slate-600 dark:text-slate-300">شرکت‌کننده</div>
+              </div>
+              <div class="text-center p-6 bg-white/60 dark:bg-slate-900/60 rounded-2xl border border-slate-200/60 dark:border-slate-800/60 backdrop-blur-sm">
+                <div class="text-3xl font-bold text-purple-500 mb-2">۱۵</div>
+                <div class="text-slate-600 dark:text-slate-300">دانشگاه</div>
+              </div>
+              <div class="text-center p-6 bg-white/60 dark:bg-slate-900/60 rounded-2xl border border-slate-200/60 dark:border-slate-800/60 backdrop-blur-sm">
+                <div class="text-3xl font-bold text-orange-500 mb-2">۲۴</div>
+                <div class="text-slate-600 dark:text-slate-300">ساعت باقی‌مانده</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Teams Content -->
+      <!-- Filters Section -->
       <section class="container py-8">
-        <!-- Stats Overview -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-lg">
-            <div class="flex items-center justify-between">
-              <div>
-                <p class="text-sm text-slate-600 dark:text-slate-400">کل تیم‌ها</p>
-                <p class="text-3xl font-bold text-slate-900 dark:text-slate-100">۲۸</p>
-              </div>
-              <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                </svg>
-              </div>
-            </div>
+        <div class="flex flex-col lg:flex-row gap-4 items-center justify-between mb-8">
+          <div class="flex flex-wrap gap-2">
+            <button class="filter-tag active" data-filter="all">همه تیم‌ها</button>
+            <button class="filter-tag" data-filter="ai">هوش مصنوعی</button>
+            <button class="filter-tag" data-filter="ml">یادگیری ماشین</button>
+            <button class="filter-tag" data-filter="cv">بینایی ماشین</button>
+            <button class="filter-tag" data-filter="nlp">پردازش زبان</button>
+            <button class="filter-tag" data-filter="data">علم داده</button>
           </div>
-
-          <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-lg">
-            <div class="flex items-center justify-between">
-              <div>
-                <p class="text-sm text-slate-600 dark:text-slate-400">تیم‌های کامل</p>
-                <p class="text-3xl font-bold text-slate-900 dark:text-slate-100">۲۲</p>
-              </div>
-              <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-lg">
-            <div class="flex items-center justify-between">
-              <div>
-                <p class="text-sm text-slate-600 dark:text-slate-400">در حال تشکیل</p>
-                <p class="text-3xl font-bold text-slate-900 dark:text-slate-100">۴</p>
-              </div>
-              <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl flex items-center justify-center">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-lg">
-            <div class="flex items-center justify-between">
-              <div>
-                <p class="text-sm text-slate-600 dark:text-slate-400">پروژه ارسال شده</p>
-                <p class="text-3xl font-bold text-slate-900 dark:text-slate-100">۱۸</p>
-              </div>
-              <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                </svg>
-              </div>
-            </div>
+          
+          <div class="flex items-center gap-2">
+            <span class="text-sm text-slate-500 dark:text-slate-400">مرتب‌سازی:</span>
+            <select id="sort-select" class="host-input text-sm">
+              <option value="score">بر اساس امتیاز</option>
+              <option value="name">بر اساس نام</option>
+              <option value="university">بر اساس دانشگاه</option>
+              <option value="members">بر اساس تعداد اعضا</option>
+            </select>
           </div>
         </div>
+      </section>
 
-        <!-- Teams Grid -->
-        <div class="grid lg:grid-cols-2 gap-8">
-          <!-- Team Cards -->
-          <div class="lg:col-span-2">
-            <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-lg">
-              <div class="flex items-center justify-between mb-6">
-                <h2 class="text-xl font-bold text-slate-900 dark:text-slate-100">همه تیم‌ها</h2>
-                <div class="flex gap-2">
-                  <input type="text" placeholder="جستجو در تیم‌ها..." class="input text-sm w-64">
-                  <select class="input text-sm w-auto">
-                    <option>همه وضعیت‌ها</option>
-                    <option>تیم کامل</option>
-                    <option>در حال تشکیل</option>
-                    <option>پروژه ارسال شده</option>
-                  </select>
+      <!-- Teams Grid -->
+      <section class="container py-8">
+        <div id="teams-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Team 1 -->
+          <div class="team-card" data-category="ai" data-score="95" data-name="تیم هوشمند" data-university="دانشگاه تهران" data-members="3">
+            <div class="team-header">
+              <div class="team-avatar">
+                <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center">
+                  <span class="text-white font-bold text-xl">AI</span>
                 </div>
+                <div class="team-rank">۱</div>
               </div>
-
-              <!-- Teams Grid -->
-              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Team Card 1 -->
-                <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-6 hover:shadow-lg transition-shadow">
-                  <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">تیم AI Pioneers</h3>
-                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400">
-                      <span class="w-2 h-2 bg-emerald-500 rounded-full ml-1"></span>
-                      کامل
-                    </span>
-                  </div>
-                  
-                  <div class="space-y-3 mb-4">
-                    <div class="flex items-center gap-2">
-                      <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                      </svg>
-                      <span class="text-sm text-slate-600 dark:text-slate-300">۴ عضو</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                      <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                      </svg>
-                      <span class="text-sm text-slate-600 dark:text-slate-300">پروژه ارسال شده</span>
-                    </div>
-                  </div>
-
-                  <!-- Team Members -->
-                  <div class="flex -space-x-2 mb-4">
-                    <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ع</div>
-                    <div class="w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">س</div>
-                    <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">م</div>
-                    <div class="w-8 h-8 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ف</div>
-                  </div>
-
-                  <div class="flex gap-2">
-                    <button class="btn-primary text-xs px-3 py-2 flex-1">مشاهده جزئیات</button>
-                    <button class="btn-ghost text-xs px-3 py-2">پیام</button>
+              <div class="team-info">
+                <h3 class="team-name">تیم هوشمند</h3>
+                <p class="team-university">دانشگاه تهران</p>
+                <div class="team-score">۹۵ امتیاز</div>
+              </div>
+            </div>
+            
+            <div class="team-project">
+              <h4 class="project-title">دستیار هوشمند سلامت</h4>
+              <p class="project-description">سیستم هوشمند تشخیص بیماری‌ها با استفاده از تصاویر پزشکی و یادگیری عمیق</p>
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">TensorFlow</span>
+                <span class="tag">OpenCV</span>
+              </div>
+            </div>
+            
+            <div class="team-members">
+              <h4 class="members-title">اعضای تیم</h4>
+              <div class="members-list">
+                <div class="member">
+                  <div class="member-avatar">ع</div>
+                  <div class="member-info">
+                    <div class="member-name">علی احمدی</div>
+                    <div class="member-role">توسعه‌دهنده اصلی</div>
                   </div>
                 </div>
-
-                <!-- Team Card 2 -->
-                <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-6 hover:shadow-lg transition-shadow">
-                  <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">تیم Data Wizards</h3>
-                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">
-                      <span class="w-2 h-2 bg-blue-500 rounded-full ml-1"></span>
-                      در حال کار
-                    </span>
-                  </div>
-                  
-                  <div class="space-y-3 mb-4">
-                    <div class="flex items-center gap-2">
-                      <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                      </svg>
-                      <span class="text-sm text-slate-600 dark:text-slate-300">۳ عضو</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                      <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                      </svg>
-                      <span class="text-sm text-slate-600 dark:text-slate-300">در حال توسعه</span>
-                    </div>
-                  </div>
-
-                  <!-- Team Members -->
-                  <div class="flex -space-x-2 mb-4">
-                    <div class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ر</div>
-                    <div class="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ن</div>
-                    <div class="w-8 h-8 bg-gradient-to-br from-red-500 to-pink-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ع</div>
-                  </div>
-
-                  <div class="flex gap-2">
-                    <button class="btn-primary text-xs px-3 py-2 flex-1">مشاهده جزئیات</button>
-                    <button class="btn-ghost text-xs px-3 py-2">پیام</button>
+                <div class="member">
+                  <div class="member-avatar">س</div>
+                  <div class="member-info">
+                    <div class="member-name">سارا محمدی</div>
+                    <div class="member-role">متخصص ML</div>
                   </div>
                 </div>
-
-                <!-- Team Card 3 -->
-                <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-6 hover:shadow-lg transition-shadow">
-                  <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">تیم ML Masters</h3>
-                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400">
-                      <span class="w-2 h-2 bg-yellow-500 rounded-full ml-1"></span>
-                      در حال تشکیل
-                    </span>
-                  </div>
-                  
-                  <div class="space-y-3 mb-4">
-                    <div class="flex items-center gap-2">
-                      <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                      </svg>
-                      <span class="text-sm text-slate-600 dark:text-slate-300">۲ عضو</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                      <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                      </svg>
-                      <span class="text-sm text-slate-600 dark:text-slate-300">منتظر عضو</span>
-                    </div>
-                  </div>
-
-                  <!-- Team Members -->
-                  <div class="flex -space-x-2 mb-4">
-                    <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ح</div>
-                    <div class="w-8 h-8 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ز</div>
-                    <div class="w-8 h-8 bg-slate-300 dark:bg-slate-600 rounded-full flex items-center justify-center text-slate-500 dark:text-slate-400 text-xs">+</div>
-                    <div class="w-8 h-8 bg-slate-300 dark:bg-slate-600 rounded-full flex items-center justify-center text-slate-500 dark:text-slate-400 text-xs">+</div>
-                  </div>
-
-                  <div class="flex gap-2">
-                    <button class="btn-primary text-xs px-3 py-2 flex-1">مشاهده جزئیات</button>
-                    <button class="btn-ghost text-xs px-3 py-2">پیام</button>
-                  </div>
-                </div>
-
-                <!-- Team Card 4 -->
-                <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-6 hover:shadow-lg transition-shadow">
-                  <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">تیم IoT Innovators</h3>
-                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400">
-                      <span class="w-2 h-2 bg-emerald-500 rounded-full ml-1"></span>
-                      کامل
-                    </span>
-                  </div>
-                  
-                  <div class="space-y-3 mb-4">
-                    <div class="flex items-center gap-2">
-                      <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                      </svg>
-                      <span class="text-sm text-slate-600 dark:text-slate-300">۵ عضو</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                      <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                      </svg>
-                      <span class="text-sm text-slate-600 dark:text-slate-300">پروژه ارسال شده</span>
-                    </div>
-                  </div>
-
-                  <!-- Team Members -->
-                  <div class="flex -space-x-2 mb-4">
-                    <div class="w-8 h-8 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ک</div>
-                    <div class="w-8 h-8 bg-gradient-to-br from-pink-500 to-rose-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">م</div>
-                    <div class="w-8 h-8 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ع</div>
-                    <div class="w-8 h-8 bg-gradient-to-br from-lime-500 to-green-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">س</div>
-                    <div class="w-8 h-8 bg-gradient-to-br from-violet-500 to-purple-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ر</div>
-                  </div>
-
-                  <div class="flex gap-2">
-                    <button class="btn-primary text-xs px-3 py-2 flex-1">مشاهده جزئیات</button>
-                    <button class="btn-ghost text-xs px-3 py-2">پیام</button>
-                  </div>
-                </div>
-
-                <!-- Team Card 5 -->
-                <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-6 hover:shadow-lg transition-shadow">
-                  <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">تیم Blockchain Builders</h3>
-                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">
-                      <span class="w-2 h-2 bg-blue-500 rounded-full ml-1"></span>
-                      در حال کار
-                    </span>
-                  </div>
-                  
-                  <div class="space-y-3 mb-4">
-                    <div class="flex items-center gap-2">
-                      <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                      </svg>
-                      <span class="text-sm text-slate-600 dark:text-slate-300">۳ عضو</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                      <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                      </svg>
-                      <span class="text-sm text-slate-600 dark:text-slate-300">در حال توسعه</span>
-                    </div>
-                  </div>
-
-                  <!-- Team Members -->
-                  <div class="flex -space-x-2 mb-4">
-                    <div class="w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ع</div>
-                    <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">م</div>
-                    <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ف</div>
-                  </div>
-
-                  <div class="flex gap-2">
-                    <button class="btn-primary text-xs px-3 py-2 flex-1">مشاهده جزئیات</button>
-                    <button class="btn-ghost text-xs px-3 py-2">پیام</button>
-                  </div>
-                </div>
-
-                <!-- Team Card 6 -->
-                <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-6 hover:shadow-lg transition-shadow">
-                  <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">تیم Security Squad</h3>
-                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400">
-                      <span class="w-2 h-2 bg-yellow-500 rounded-full ml-1"></span>
-                      در حال تشکیل
-                    </span>
-                  </div>
-                  
-                  <div class="space-y-3 mb-4">
-                    <div class="flex items-center gap-2">
-                      <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                      </svg>
-                      <span class="text-sm text-slate-600 dark:text-slate-300">۱ عضو</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                      <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                      </svg>
-                      <span class="text-sm text-slate-600 dark:text-slate-300">منتظر عضو</span>
-                    </div>
-                  </div>
-
-                  <!-- Team Members -->
-                  <div class="flex -space-x-2 mb-4">
-                    <div class="w-8 h-8 bg-gradient-to-br from-red-500 to-pink-600 rounded-full flex items-center justify-center text-white text-xs font-semibold">ح</div>
-                    <div class="w-8 h-8 bg-slate-300 dark:bg-slate-600 rounded-full flex items-center justify-center text-slate-500 dark:text-slate-400 text-xs">+</div>
-                    <div class="w-8 h-8 bg-slate-300 dark:bg-slate-600 rounded-full flex items-center justify-center text-slate-500 dark:text-slate-400 text-xs">+</div>
-                    <div class="w-8 h-8 bg-slate-300 dark:bg-slate-600 rounded-full flex items-center justify-center text-slate-500 dark:text-slate-400 text-xs">+</div>
-                  </div>
-
-                  <div class="flex gap-2">
-                    <button class="btn-primary text-xs px-3 py-2 flex-1">مشاهده جزئیات</button>
-                    <button class="btn-ghost text-xs px-3 py-2">پیام</button>
+                <div class="member">
+                  <div class="member-avatar">م</div>
+                  <div class="member-info">
+                    <div class="member-name">محمد رضایی</div>
+                    <div class="member-role">طراح UI/UX</div>
                   </div>
                 </div>
               </div>
+            </div>
+            
+            <div class="team-progress">
+              <div class="progress-header">
+                <span>پیشرفت پروژه</span>
+                <span>۸۵٪</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 85%"></div>
+              </div>
+            </div>
+            
+            <div class="team-status">
+              <span class="status-badge active">فعال</span>
+            </div>
+          </div>
+
+          <!-- Team 2 -->
+          <div class="team-card" data-category="ml" data-score="87" data-name="تیم نوآوران" data-university="دانشگاه شریف" data-members="4">
+            <div class="team-header">
+              <div class="team-avatar">
+                <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center">
+                  <span class="text-white font-bold text-xl">ML</span>
+                </div>
+                <div class="team-rank">۲</div>
+              </div>
+              <div class="team-info">
+                <h3 class="team-name">تیم نوآوران</h3>
+                <p class="team-university">دانشگاه شریف</p>
+                <div class="team-score">۸۷ امتیاز</div>
+              </div>
+            </div>
+            
+            <div class="team-project">
+              <h4 class="project-title">سیستم تشخیص تصویر</h4>
+              <p class="project-description">پلتفرم تشخیص اشیاء و چهره با دقت بالا برای کاربردهای امنیتی</p>
+              <div class="project-tags">
+                <span class="tag">PyTorch</span>
+                <span class="tag">YOLO</span>
+                <span class="tag">Flask</span>
+              </div>
+            </div>
+            
+            <div class="team-members">
+              <h4 class="members-title">اعضای تیم</h4>
+              <div class="members-list">
+                <div class="member">
+                  <div class="member-avatar">ف</div>
+                  <div class="member-info">
+                    <div class="member-name">فاطمه کریمی</div>
+                    <div class="member-role">توسعه‌دهنده اصلی</div>
+                  </div>
+                </div>
+                <div class="member">
+                  <div class="member-avatar">ح</div>
+                  <div class="member-info">
+                    <div class="member-name">حسین نوری</div>
+                    <div class="member-role">متخصص CV</div>
+                  </div>
+                </div>
+                <div class="member">
+                  <div class="member-avatar">ن</div>
+                  <div class="member-info">
+                    <div class="member-name">نرگس صادقی</div>
+                    <div class="member-role">متخصص Backend</div>
+                  </div>
+                </div>
+                <div class="member">
+                  <div class="member-avatar">ر</div>
+                  <div class="member-info">
+                    <div class="member-name">رضا احمدی</div>
+                    <div class="member-role">طراح Frontend</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="team-progress">
+              <div class="progress-header">
+                <span>پیشرفت پروژه</span>
+                <span>۷۸٪</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 78%"></div>
+              </div>
+            </div>
+            
+            <div class="team-status">
+              <span class="status-badge active">فعال</span>
+            </div>
+          </div>
+
+          <!-- Team 3 -->
+          <div class="team-card" data-category="data" data-score="79" data-name="تیم داده‌کاوان" data-university="دانشگاه امیرکبیر" data-members="3">
+            <div class="team-header">
+              <div class="team-avatar">
+                <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center">
+                  <span class="text-white font-bold text-xl">DS</span>
+                </div>
+                <div class="team-rank">۳</div>
+              </div>
+              <div class="team-info">
+                <h3 class="team-name">تیم داده‌کاوان</h3>
+                <p class="team-university">دانشگاه امیرکبیر</p>
+                <div class="team-score">۷۹ امتیاز</div>
+              </div>
+            </div>
+            
+            <div class="team-project">
+              <h4 class="project-title">پیش‌بینی بازار</h4>
+              <p class="project-description">سیستم پیش‌بینی قیمت سهام با استفاده از تحلیل احساسات و داده‌های تاریخی</p>
+              <div class="project-tags">
+                <span class="tag">Pandas</span>
+                <span class="tag">Scikit-learn</span>
+                <span class="tag">NLTK</span>
+              </div>
+            </div>
+            
+            <div class="team-members">
+              <h4 class="members-title">اعضای تیم</h4>
+              <div class="members-list">
+                <div class="member">
+                  <div class="member-avatar">آ</div>
+                  <div class="member-info">
+                    <div class="member-name">آرمان رضایی</div>
+                    <div class="member-role">متخصص داده</div>
+                  </div>
+                </div>
+                <div class="member">
+                  <div class="member-avatar">ز</div>
+                  <div class="member-info">
+                    <div class="member-name">زهرا احمدی</div>
+                    <div class="member-role">تحلیلگر</div>
+                  </div>
+                </div>
+                <div class="member">
+                  <div class="member-avatar">ی</div>
+                  <div class="member-info">
+                    <div class="member-name">یاسر محمدی</div>
+                    <div class="member-role">توسعه‌دهنده</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="team-progress">
+              <div class="progress-header">
+                <span>پیشرفت پروژه</span>
+                <span>۶۵٪</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 65%"></div>
+              </div>
+            </div>
+            
+            <div class="team-status">
+              <span class="status-badge developing">در حال توسعه</span>
+            </div>
+          </div>
+
+          <!-- Team 4 -->
+          <div class="team-card" data-category="nlp" data-score="72" data-name="تیم پردازش زبان" data-university="دانشگاه علم و صنعت" data-members="3">
+            <div class="team-header">
+              <div class="team-avatar">
+                <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-2xl flex items-center justify-center">
+                  <span class="text-white font-bold text-xl">NL</span>
+                </div>
+                <div class="team-rank">۴</div>
+              </div>
+              <div class="team-info">
+                <h3 class="team-name">تیم پردازش زبان</h3>
+                <p class="team-university">دانشگاه علم و صنعت</p>
+                <div class="team-score">۷۲ امتیاز</div>
+              </div>
+            </div>
+            
+            <div class="team-project">
+              <h4 class="project-title">ترجمه هوشمند</h4>
+              <p class="project-description">سیستم ترجمه فوری فارسی به انگلیسی با استفاده از ترنسفورمرها</p>
+              <div class="project-tags">
+                <span class="tag">Transformers</span>
+                <span class="tag">Hugging Face</span>
+                <span class="tag">FastAPI</span>
+              </div>
+            </div>
+            
+            <div class="team-members">
+              <h4 class="members-title">اعضای تیم</h4>
+              <div class="members-list">
+                <div class="member">
+                  <div class="member-avatar">م</div>
+                  <div class="member-info">
+                    <div class="member-name">مریم حسینی</div>
+                    <div class="member-role">متخصص NLP</div>
+                  </div>
+                </div>
+                <div class="member">
+                  <div class="member-avatar">ع</div>
+                  <div class="member-info">
+                    <div class="member-name">علی رضایی</div>
+                    <div class="member-role">توسعه‌دهنده</div>
+                  </div>
+                </div>
+                <div class="member">
+                  <div class="member-avatar">س</div>
+                  <div class="member-info">
+                    <div class="member-name">سعید کریمی</div>
+                    <div class="member-role">طراح سیستم</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="team-progress">
+              <div class="progress-header">
+                <span>پیشرفت پروژه</span>
+                <span>۸۲٪</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 82%"></div>
+              </div>
+            </div>
+            
+            <div class="team-status">
+              <span class="status-badge active">فعال</span>
+            </div>
+          </div>
+
+          <!-- Team 5 -->
+          <div class="team-card" data-category="cv" data-score="68" data-name="تیم بینایی ماشین" data-university="دانشگاه خواجه نصیر" data-members="4">
+            <div class="team-header">
+              <div class="team-avatar">
+                <div class="w-16 h-16 bg-gradient-to-br from-rose-500 to-pink-600 rounded-2xl flex items-center justify-center">
+                  <span class="text-white font-bold text-xl">CV</span>
+                </div>
+                <div class="team-rank">۵</div>
+              </div>
+              <div class="team-info">
+                <h3 class="team-name">تیم بینایی ماشین</h3>
+                <p class="team-university">دانشگاه خواجه نصیر</p>
+                <div class="team-score">۶۸ امتیاز</div>
+              </div>
+            </div>
+            
+            <div class="team-project">
+              <h4 class="project-title">تشخیص چهره</h4>
+              <p class="project-description">سیستم تشخیص و شناسایی چهره با قابلیت تشخیص احساسات</p>
+              <div class="project-tags">
+                <span class="tag">OpenCV</span>
+                <span class="tag">Face Recognition</span>
+                <span class="tag">Django</span>
+              </div>
+            </div>
+            
+            <div class="team-members">
+              <h4 class="members-title">اعضای تیم</h4>
+              <div class="members-list">
+                <div class="member">
+                  <div class="member-avatar">ح</div>
+                  <div class="member-info">
+                    <div class="member-name">حسین احمدی</div>
+                    <div class="member-role">متخصص CV</div>
+                  </div>
+                </div>
+                <div class="member">
+                  <div class="member-avatar">ف</div>
+                  <div class="member-info">
+                    <div class="member-name">فاطمه رضایی</div>
+                    <div class="member-role">توسعه‌دهنده</div>
+                  </div>
+                </div>
+                <div class="member">
+                  <div class="member-avatar">م</div>
+                  <div class="member-info">
+                    <div class="member-name">محمد کریمی</div>
+                    <div class="member-role">طراح UI</div>
+                  </div>
+                </div>
+                <div class="member">
+                  <div class="member-avatar">ن</div>
+                  <div class="member-info">
+                    <div class="member-name">نرگس محمدی</div>
+                    <div class="member-role">تست‌کننده</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="team-progress">
+              <div class="progress-header">
+                <span>پیشرفت پروژه</span>
+                <span>۷۰٪</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 70%"></div>
+              </div>
+            </div>
+            
+            <div class="team-status">
+              <span class="status-badge developing">در حال توسعه</span>
+            </div>
+          </div>
+
+          <!-- Team 6 -->
+          <div class="team-card" data-category="ai" data-score="65" data-name="تیم هوش مصنوعی پیشرفته" data-university="دانشگاه صنعتی شریف" data-members="3">
+            <div class="team-header">
+              <div class="team-avatar">
+                <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center">
+                  <span class="text-white font-bold text-xl">AI</span>
+                </div>
+                <div class="team-rank">۶</div>
+              </div>
+              <div class="team-info">
+                <h3 class="team-name">تیم هوش مصنوعی پیشرفته</h3>
+                <p class="team-university">دانشگاه صنعتی شریف</p>
+                <div class="team-score">۶۵ امتیاز</div>
+              </div>
+            </div>
+            
+            <div class="team-project">
+              <h4 class="project-title">ربات چت هوشمند</h4>
+              <p class="project-description">چت‌بات هوشمند با قابلیت درک زبان فارسی و پاسخ‌دهی طبیعی</p>
+              <div class="project-tags">
+                <span class="tag">GPT</span>
+                <span class="tag">BERT</span>
+                <span class="tag">React</span>
+              </div>
+            </div>
+            
+            <div class="team-members">
+              <h4 class="members-title">اعضای تیم</h4>
+              <div class="members-list">
+                <div class="member">
+                  <div class="member-avatar">ر</div>
+                  <div class="member-info">
+                    <div class="member-name">رضا احمدی</div>
+                    <div class="member-role">متخصص AI</div>
+                  </div>
+                </div>
+                <div class="member">
+                  <div class="member-avatar">س</div>
+                  <div class="member-info">
+                    <div class="member-name">سارا رضایی</div>
+                    <div class="member-role">توسعه‌دهنده</div>
+                  </div>
+                </div>
+                <div class="member">
+                  <div class="member-avatar">ع</div>
+                  <div class="member-info">
+                    <div class="member-name">علی محمدی</div>
+                    <div class="member-role">طراح UX</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="team-progress">
+              <div class="progress-header">
+                <span>پیشرفت پروژه</span>
+                <span>۵۵٪</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 55%"></div>
+              </div>
+            </div>
+            
+            <div class="team-status">
+              <span class="status-badge developing">در حال توسعه</span>
             </div>
           </div>
         </div>
       </section>
     </main>
 
+    <!-- Footer -->
+    <footer class="bg-[rgb(13,184,156)] dark:bg-slate-950 dark:border-t dark:border-slate-800 text-white">
+      <div class="max-w-7xl mx-auto px-6 py-12">
+        <div class="border-t border-white/20 pt-8">
+          <div class="flex flex-col lg:flex-row gap-4 items-center justify-between">
+            <div class="text-sm text-white/80">
+              ©<span id="year"></span> IranHack. تمامی حقوق محفوظ است.
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
     <!-- Mobile Menu -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
     <div id="mobile-menu" class="mobile-menu">
       <div class="mobile-menu-header">
         <a href="./index.html" class="flex items-center gap-2 text-lg font-extrabold">
           <span class="inline-block size-6 rounded bg-gradient-to-tr from-brand-500 to-emerald-500"></span>
           IranHack
         </a>
-        <button id="close-menu" class="icon-btn">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        <button id="mobile-close" class="icon-btn" aria-label="بستن منو">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5">
+            <path d="M6.225 4.811a1 1 0 00-1.414 1.414L10.586 12 4.81 17.775a1 1 0 101.414 1.414L12 13.414l5.775 5.775a1 1 0 001.414-1.414L13.414 12l5.775-5.775a1 1 0 00-1.414-1.414L12 10.586 6.225 4.81z"/>
           </svg>
         </button>
       </div>
       <nav class="mobile-menu-nav">
-        <a href="./hackathon-dashboard.html" class="nav-link">داشبورد هکاتون</a>
         <a href="./hackathons.html" class="nav-link">هکاتون‌ها</a>
+        <a href="./about.html" class="nav-link">درباره</a>
         <a href="./profile.html" class="nav-link">پروفایل</a>
+        <a href="./auth.html" class="nav-link">ورود</a>
+        <button id="mobile-theme-toggle" class="nav-link text-right" aria-label="تغییر تم">
+          تغییر تم
+        </button>
       </nav>
     </div>
-    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
 
     <script src="./assets/app.js"></script>
-    <script src="./assets/teams.js"></script>
+    <script>
+      // Set current year in footer
+      document.getElementById('year').textContent = new Date().getFullYear();
+      
+      // Teams page functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const filterButtons = document.querySelectorAll('.filter-tag');
+        const sortSelect = document.getElementById('sort-select');
+        const teamsGrid = document.getElementById('teams-grid');
+        const teamCards = document.querySelectorAll('.team-card');
+        
+        let currentFilter = 'all';
+        let currentSort = 'score';
+        
+        // Filter functionality
+        filterButtons.forEach(button => {
+          button.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+            
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            currentFilter = filter;
+            filterAndSortTeams();
+          });
+        });
+        
+        // Sort functionality
+        sortSelect.addEventListener('change', function() {
+          currentSort = this.value;
+          filterAndSortTeams();
+        });
+        
+        function filterAndSortTeams() {
+          const filteredTeams = Array.from(teamCards).filter(team => {
+            if (currentFilter === 'all') return true;
+            return team.getAttribute('data-category') === currentFilter;
+          });
+          
+          // Sort teams
+          filteredTeams.sort((a, b) => {
+            switch (currentSort) {
+              case 'score':
+                return parseInt(b.getAttribute('data-score')) - parseInt(a.getAttribute('data-score'));
+              case 'name':
+                return a.getAttribute('data-name').localeCompare(b.getAttribute('data-name'));
+              case 'university':
+                return a.getAttribute('data-university').localeCompare(b.getAttribute('data-university'));
+              case 'members':
+                return parseInt(b.getAttribute('data-members')) - parseInt(a.getAttribute('data-members'));
+              default:
+                return 0;
+            }
+          });
+          
+          // Update grid
+          teamsGrid.innerHTML = '';
+          filteredTeams.forEach(team => {
+            teamsGrid.appendChild(team);
+          });
+          
+          // Add animation
+          filteredTeams.forEach((team, index) => {
+            team.style.animationDelay = `${index * 0.1}s`;
+            team.classList.add('fade-in');
+          });
+        }
+        
+        // Add click functionality to team cards
+        teamCards.forEach(card => {
+          card.addEventListener('click', function() {
+            const teamName = this.querySelector('.team-name').textContent;
+            showNotification(`مشاهده جزئیات تیم ${teamName}`, 'info');
+          });
+        });
+        
+        // Notification function
+        function showNotification(message, type = 'info') {
+          const notification = document.createElement('div');
+          notification.className = `fixed top-4 left-4 z-50 p-4 rounded-lg shadow-lg transition-all duration-300 transform translate-x-full`;
+          
+          const bgColor = type === 'success' ? 'bg-emerald-500' : 'bg-blue-500';
+          const textColor = 'text-white';
+          
+          notification.className += ` ${bgColor} ${textColor}`;
+          notification.innerHTML = `
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>${message}</span>
+            </div>
+          `;
+          
+          document.body.appendChild(notification);
+          
+          // Animate in
+          setTimeout(() => {
+            notification.style.transform = 'translateX(0)';
+          }, 100);
+          
+          // Remove after 3 seconds
+          setTimeout(() => {
+            notification.style.transform = 'translateX(-100%)';
+            setTimeout(() => {
+              document.body.removeChild(notification);
+            }, 300);
+          }, 3000);
+        }
+        
+        // Add hover effects to team cards
+        teamCards.forEach(card => {
+          card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-4px)';
+            this.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.15)';
+          });
+          
+          card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '';
+          });
+        });
+      });
+    </script>
   </body>
 </html>
