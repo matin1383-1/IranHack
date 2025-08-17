@@ -26,6 +26,11 @@ html {
 .btn-ghost:hover { background: rgba(15, 23, 42, 0.06); }
 .dark .btn-ghost:hover { background: rgba(30, 41, 59, 0.5); }
 
+.btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; border-radius: .75rem; padding: .5rem 1rem; font-size: .875rem; font-weight: 600; color: #475569; background: rgba(255, 255, 255, 0.8); border: 1px solid rgba(100, 116, 139, 0.3); transition: all .2s; }
+.dark .btn-secondary { color: #cbd5e1; background: rgba(15, 23, 42, 0.8); border-color: rgba(30, 41, 59, 0.8); }
+.btn-secondary:hover { background: rgba(15, 23, 42, 0.06); color: #0f172a; }
+.dark .btn-secondary:hover { background: rgba(30, 41, 59, 0.5); color: #fff; }
+
 .icon-btn { display: inline-flex; align-items: center; justify-content: center; border-radius: .75rem; padding: .5rem .625rem; border: 1px solid rgba(100,116,139,.3); color: #475569; transition: background-color .2s; }
 .dark .icon-btn { color: #cbd5e1; border-color: rgba(30,41,59,.8); }
 .icon-btn:hover { background: rgba(15,23,42,.06); }
@@ -88,6 +93,35 @@ body.menu-open .desktop-nav { display: none !important; }
 /* Optionally hide the hamburger icon itself when menu is open (if desired) */
 /* body.menu-open .hamburger-btn { visibility: hidden; } */
 
+/* Modal styles */
+.modal-open {
+  overflow: hidden;
+}
+
+.modal-open body {
+  overflow: hidden;
+}
+
+/* Leaderboard modal specific styles */
+#leaderboard-modal {
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+#leaderboard-modal.show {
+  display: block !important;
+}
+
+#leaderboard-modal .bg-white {
+  transform: scale(0.95);
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+#leaderboard-modal.show .bg-white {
+  transform: scale(1);
+  opacity: 1;
+}
+
 /* Mobile-specific improvements */
 @media (max-width: 768px) {
   /* Prevent horizontal scrolling */
@@ -97,7 +131,7 @@ body.menu-open .desktop-nav { display: none !important; }
   .nav-link, .btn-primary, .btn-ghost, .icon-btn { 
     min-height: 44px; 
     min-width: 44px; 
-    display: flex; 
+    display: flex;
     align-items: center; 
     justify-content: center; 
   }
