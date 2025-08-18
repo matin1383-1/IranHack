@@ -1,8 +1,5 @@
 // Hackathon Dashboard JavaScript
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize theme
-    initTheme();
-    
     // Initialize dashboard
     initDashboard();
     
@@ -13,26 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     startRealTimeUpdates();
 });
 
-function initTheme() {
-    const root = document.documentElement;
-    
-    // Theme init: respect saved preference or system
-    const saved = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (saved === 'dark' || (!saved && prefersDark)) {
-        root.classList.add('dark');
-    } else {
-        root.classList.remove('dark');
-    }
-}
-
 function initDashboard() {
-    // Initialize theme toggle
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-        themeToggle.addEventListener('click', toggleTheme);
-    }
-    
     // Initialize mobile menu
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -291,11 +269,6 @@ function updateTimeline() {
             timeElement.textContent = `${newHours.toString().padStart(2, '0')}:${newMinutes.toString().padStart(2, '0')}`;
         }
     }
-}
-
-function toggleTheme() {
-    document.documentElement.classList.toggle('dark');
-    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
 }
 
 function closeMobileMenu() {

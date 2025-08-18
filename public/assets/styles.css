@@ -239,6 +239,10 @@ body.menu-open .desktop-nav { display: none !important; }
   box-shadow: 0 2px 8px rgba(6, 182, 212, 0.3);
 }
 
+.dark .filter-tag.active {
+  box-shadow: 0 2px 8px rgba(6, 182, 212, 0.5);
+}
+
 /* View Toggle Buttons */
 .view-toggle {
   padding: 0.5rem;
@@ -317,6 +321,22 @@ body.menu-open .desktop-nav { display: none !important; }
   background: rgba(15, 23, 42, 0.6);
   color: #e2e8f0;
   border-color: rgba(30, 41, 59, 0.8);
+}
+
+/* Select dropdown dark mode styles */
+select {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #334155;
+}
+
+.dark select {
+  background-color: rgba(15, 23, 42, 0.6);
+  color: #e2e8f0;
+}
+
+.dark select option {
+  background-color: rgba(15, 23, 42, 0.9);
+  color: #e2e8f0;
 }
 
 .host-input:focus {
@@ -536,6 +556,7 @@ select:focus, input:focus {
 .dark .team-card {
   background: rgba(15, 23, 42, 0.8);
   border-color: rgba(30, 41, 59, 0.8);
+  color: #f1f5f9;
 }
 
 .team-card:hover {
@@ -794,6 +815,126 @@ select:focus, input:focus {
   animation: fadeIn 0.5s ease-out forwards;
 }
 
+/* Additional dark mode fixes for teams page */
+.dark .team-card .tag {
+  background: rgba(30, 41, 59, 0.8);
+  color: #e2e8f0;
+  border: 1px solid rgba(30, 41, 59, 0.8);
+}
+
+.dark .team-card .tag:hover {
+  background: rgba(30, 41, 59, 1);
+}
+
+/* Ensure proper contrast for dark mode text */
+.dark .team-card * {
+  color: inherit;
+}
+
+.dark .team-card .team-score {
+  color: #06b6d4;
+}
+
+.dark .team-card .progress-header span:last-child {
+  color: #06b6d4;
+}
+
+/* Fix for any missing dark mode styles */
+.dark .team-card .project-description {
+  color: #94a3b8;
+}
+
+.dark .team-card .member-role {
+  color: #94a3b8;
+}
+
+.dark .team-card .progress-header span:first-child {
+  color: #94a3b8;
+}
+
+/* Ensure proper dark mode for stats cards */
+.dark .bg-white\/60 {
+  background-color: rgba(15, 23, 42, 0.6);
+}
+
+.dark .border-slate-200\/60 {
+  border-color: rgba(30, 41, 59, 0.6);
+}
+
+/* Participant Teams Page Dark Mode Styles */
+.dark .bg-slate-50 {
+  background-color: #0f172a;
+}
+
+.dark .bg-white {
+  background-color: #1e293b;
+}
+
+.dark .border-slate-200 {
+  border-color: #334155;
+}
+
+.dark .border-slate-700 {
+  border-color: #475569;
+}
+
+/* Team card specific dark mode styles */
+.dark .team-card,
+.dark .border-slate-200\/60 {
+  border-color: #334155;
+}
+
+.dark .team-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Status badge dark mode improvements */
+.dark .bg-blue-100 {
+  background-color: rgba(59, 130, 246, 0.2);
+}
+
+.dark .bg-emerald-100 {
+  background-color: rgba(16, 185, 129, 0.2);
+}
+
+.dark .text-blue-800 {
+  color: #93c5fd;
+}
+
+.dark .text-emerald-800 {
+  color: #6ee7b7;
+}
+
+/* Empty team member avatars */
+.dark .bg-slate-300 {
+  background-color: #475569;
+}
+
+.dark .text-slate-500 {
+  color: #94a3b8;
+}
+
+.dark .text-slate-400 {
+  color: #cbd5e1;
+}
+
+/* Disabled button styles */
+.dark .btn-ghost:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Search input and select dark mode */
+.dark .input {
+  background-color: rgba(15, 23, 42, 0.6);
+  border-color: #334155;
+  color: #e2e8f0;
+}
+
+.dark .input::placeholder {
+  color: #94a3b8;
+}
+
 /* Responsive improvements for teams page */
 @media (max-width: 768px) {
   .team-card {
@@ -822,5 +963,104 @@ select:focus, input:focus {
     width: 1.75rem;
     height: 1.75rem;
     font-size: 0.625rem;
+  }
+}
+
+/* Hackathon Dashboard Dark Mode Styles */
+.dark .bg-slate-50 {
+  background-color: #0f172a;
+}
+
+.dark .bg-white {
+  background-color: #1e293b;
+}
+
+.dark .border-slate-200 {
+  border-color: #334155;
+}
+
+.dark .border-slate-700 {
+  border-color: #475569;
+}
+
+/* Table dark mode improvements */
+.dark .divide-slate-200 {
+  border-color: #334155;
+}
+
+.dark .divide-slate-700 {
+  border-color: #475569;
+}
+
+.dark .hover\\:bg-slate-50:hover {
+  background-color: rgba(30, 41, 59, 0.5);
+}
+
+.dark .hover\\:bg-slate-700\\/50:hover {
+  background-color: rgba(51, 65, 85, 0.5);
+}
+
+/* Status badge dark mode improvements */
+.dark .bg-emerald-100 {
+  background-color: rgba(16, 185, 129, 0.2);
+}
+
+.dark .bg-blue-100 {
+  background-color: rgba(59, 130, 246, 0.2);
+}
+
+.dark .text-emerald-800 {
+  color: #6ee7b7;
+}
+
+.dark .text-blue-800 {
+  color: #93c5fd;
+}
+
+/* Timeline dots dark mode */
+.dark .bg-gray-300 {
+  background-color: #475569;
+}
+
+/* Quick action buttons dark mode */
+.dark .btn-ghost:hover {
+  background-color: rgba(30, 41, 59, 0.5);
+}
+
+/* Team overview cards dark mode */
+.dark .border-slate-200\\/60 {
+  border-color: #334155;
+}
+
+/* Stats cards dark mode improvements */
+.dark .shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive improvements for hackathon dashboard */
+@media (max-width: 768px) {
+  .grid.grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid.lg\\:grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+  
+  .lg\\:col-span-2 {
+    grid-column: span 1;
+  }
+  
+  .input.text-sm.w-64 {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .flex.gap-2 {
+    flex-direction: column;
+  }
+  
+  .flex.gap-2 > * {
+    width: 100%;
   }
 }

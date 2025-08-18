@@ -361,11 +361,47 @@
         <a href="./dashboard.html" class="nav-link">داشبورد اصلی</a>
         <a href="./hackathons.html" class="nav-link">هکاتون‌ها</a>
         <a href="./profile.html" class="nav-link">پروفایل</a>
+        <button id="mobile-theme-toggle" class="nav-link text-right" aria-label="تغییر تم">
+          تغییر تم
+        </button>
       </nav>
     </div>
     <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
 
     <script src="./assets/app.js"></script>
     <script src="./assets/dashboard.js"></script>
+    <script>
+      // Debug dark mode functionality for hackathon dashboard page
+      console.log('Hackathon dashboard page loaded');
+      console.log('Current theme:', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+      
+      // Test theme toggle functionality
+      const themeToggle = document.getElementById('theme-toggle');
+      if (themeToggle) {
+        console.log('Theme toggle button found');
+        themeToggle.addEventListener('click', function() {
+          console.log('Theme toggle clicked');
+          setTimeout(() => {
+            console.log('New theme:', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+          }, 100);
+        });
+      } else {
+        console.log('Theme toggle button not found');
+      }
+      
+      // Test mobile theme toggle functionality
+      const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+      if (mobileThemeToggle) {
+        console.log('Mobile theme toggle button found');
+        mobileThemeToggle.addEventListener('click', function() {
+          console.log('Mobile theme toggle clicked');
+          setTimeout(() => {
+            console.log('New theme after mobile toggle:', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+          }, 100);
+        });
+      } else {
+        console.log('Mobile theme toggle button not found');
+      }
+    </script>
   </body>
 </html>

@@ -29,6 +29,7 @@
     <link href="./assets/styles.css" rel="stylesheet" />
   </head>
   <body class="text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans">
+    
     <header class="sticky top-0 z-20 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-slate-950/60 border-b border-slate-200/60 dark:border-slate-800/60">
       <nav class="container flex items-center gap-4 py-3">
         <a href="./index.html" class="flex items-center gap-2 text-lg font-extrabold">
@@ -580,6 +581,17 @@
 
     <script src="./assets/app.js"></script>
     <script>
+      // Debug dark mode functionality
+      console.log('Teams page loaded');
+      console.log('Current theme:', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+      
+      // Test if dark mode classes are being applied
+      setTimeout(() => {
+        console.log('After timeout - Current theme:', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        console.log('Body classes:', document.body.className);
+        console.log('HTML classes:', document.documentElement.className);
+      }, 1000);
+      
       // Set current year in footer
       document.getElementById('year').textContent = new Date().getFullYear();
       
@@ -655,6 +667,32 @@
             showNotification(`مشاهده جزئیات تیم ${teamName}`, 'info');
           });
         });
+        
+        // Test theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const debugElement = document.getElementById('dark-mode-debug');
+        
+        function updateDebugElement() {
+          const isDark = document.documentElement.classList.contains('dark');
+          if (debugElement) {
+            debugElement.textContent = isDark ? 'Dark Mode' : 'Light Mode';
+            debugElement.className = isDark ? 'fixed top-0 left-0 z-50 p-2 bg-blue-500 text-white text-xs' : 'fixed top-0 left-0 z-50 p-2 bg-red-500 text-white text-xs';
+          }
+        }
+        
+        if (themeToggle) {
+          console.log('Theme toggle button found');
+          themeToggle.addEventListener('click', function() {
+            console.log('Theme toggle clicked');
+            setTimeout(updateDebugElement, 100); // Small delay to ensure class is applied
+            console.log('New theme:', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+          });
+        } else {
+          console.log('Theme toggle button not found');
+        }
+        
+        // Update debug element on page load
+        updateDebugElement();
         
         // Notification function
         function showNotification(message, type = 'info') {
